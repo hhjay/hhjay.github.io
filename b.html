@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="message">b.html: last!</div>
+<script type="text/javascript">
+	window.onload = function(){
+		var messageEle = document.getElementById('message');
+		function receiveMessage(e){
+			if( e.origin === "http://127.0.0.1" ){
+				messageEle.innerHTML = "b.html Received: " + e.data;
+				// console.log(e.data);//a.html ask
+			}else{
+				alert("事件源出错！");
+			}//判断事件源
+		}
+		window.addEventListener('message',receiveMessage,false);
+	}
+</script>
+</body>
+</html>
