@@ -200,3 +200,61 @@ Object.prototype.clone = function() {
 > * 在js那加上时间戳，判断是否时间一致然后加载
 
 ### 网站优化
+> * http://www.chinaz.com/web/2014/0527/353092.shtml
+
+### 网站加载顺序
+> * http://m.studyofnet.com/news/349.html
+> * (从服务器请求相应的html)先加载html文件-> 从上到下加载-> head里面的link(服务器请求对应的css)-> 
+    (渲染页面)加载body的dom结构 ->发现img就向服务器发送请求图片(图片影响了后面段落的布局)
+                                ->发现script标签，请求相应的js并运行 ->有些会影响原先dom结构的重新渲染这段dom，执行时会阻塞页面后续的内容(包括页面的渲染和其他资源的下载)，那么如果是多个js文件被引入那么这些文件会被串行的加载并执行。
+                                ->终于到了结束的</html>
+> * 当前页面两个相同的id会怎么渲染: 因为页面是css先加载从上到下渲染，然而css并不知道是两个id 所以都会同样的css样式；引申到如果相同的事件都绑定了当前id呢？那么当然是第一个id得到效果，因为查找是从上到下的。
+> * 所以是先加载dom树，然后再加载图片那些。
+
+### js垃圾回收机制 & 闭包之后怎么回收
+> * https://segmentfault.com/a/1190000002778015
+> * 闭包： 闭包是有权访问另一作用域中变量的函数
+> * function sayName(name){
+        return function(){
+            return name;
+        }
+    }
+    var say = sayName("king");//该函数就可以访问另一作用域的变量
+> * sayName执行完毕之后，其执行环境的作用域会被销毁，但它的活动变量会留在内存中，直到匿名函数销毁。
+> * 内存泄漏解决办法：a、使用匿名函数  b、使用闭包之后将值置null  c、解除循环使用
+
+
+### js对象怎么继承
+> * http://www.zcfy.cc/article/513
+> * http://blog.csdn.net/fuxiaohui/article/details/44910765
+> * 直接全部写正常的对象var o = { x:2, y:3, f:function(){ ....  } }
+> * 使用工厂函数来new：function thing(){ x:2,y:3,f:function(){ ....  }  };var 0 = new thing();(内存膨胀)
+> * 原型链：
+    =>
+        var thingPrototype = {f:function(){ ....  }};
+        function thing(){ var o = Object.create(thingPrototype);o.x = 2;o.y = 3; return o; };
+        var o = thing();
+    => 优化：
+        thing.prototype.f = function(){ .....  };
+        function thing(){
+            var o = Object.create(thing.prototype);
+            o.x = 2; o.y = 3;
+            return o;
+        }
+        var o = thing();
+    => 缺点：会导致重复
+> * Es6方法：
+    => class thing{
+        Constructor(){
+            this.x = 2;thi.y = 3;
+        }
+        f() {
+            .....
+        }
+    }
+    var o = new thing();
+> * call和apply，访问上下文来继承。
+
+
+
+
