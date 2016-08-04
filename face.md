@@ -255,6 +255,8 @@ Object.prototype.clone = function() {
     var o = new thing();
 > * call和apply，访问上下文来继承。
 
+### Tcp和udp区别
+> * 最大的区别是tcp丢包时会重新连接，但是udp不会。udp(视频直播)
 
-
-
+### 防止CORS
+> * 利用后端语言生成随机数，因为CORS是不可以访问cookie的，所以可以保存在cookie里面
