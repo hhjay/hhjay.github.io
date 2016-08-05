@@ -35,6 +35,7 @@ B页面：
     </script>
 ```
 > * window.name
+> * xhr2
 > * 使用HTML5的window.postMessage方法跨域// 例子见该文件统一目录的a.html && b.html
 > * jsonp,就是把跨域的js当成一个节点使用，并返回结果(数据)。
 ```python
@@ -210,6 +211,9 @@ Object.prototype.clone = function() {
                                 ->终于到了结束的</html>
 > * 当前页面两个相同的id会怎么渲染: 因为页面是css先加载从上到下渲染，然而css并不知道是两个id 所以都会同样的css样式；引申到如果相同的事件都绑定了当前id呢？那么当然是第一个id得到效果，因为查找是从上到下的。
 > * 所以是先加载dom树，然后再加载图片那些。
+> * 面试4399感觉被坑了，一直说http的请求顺序，当时一说按照html的dom顺序来他就说我们现在说的是http的顺序。( http://www.cnblogs.com/dkarthas/archive/2010/07/04/1770989.html  );按照dom顺序背景图片最后加载。
+
+
 
 ### js垃圾回收机制 & 闭包之后怎么回收
 > * https://segmentfault.com/a/1190000002778015
@@ -260,3 +264,8 @@ Object.prototype.clone = function() {
 
 ### 防止CORS
 > * 利用后端语言生成随机数，因为CORS是不可以访问cookie的，所以可以保存在cookie里面
+
+### promise || deferred
+> * 降低异步编程的复杂性，不会阻塞和等待长时间的操作
+> * 缺点：a、一旦新建就会立即执行，无法中途取消；b、若不设置回调函数，无法抛出错位到外部；
+
