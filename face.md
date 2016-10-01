@@ -125,6 +125,7 @@ test();//会返回什么？
 > * 自我理解是浅拷贝只是值(对象)拷贝，深拷贝是地址、原型链那些都拷贝，所以深拷贝要加上hasOwnProperty
 > * 浅拷贝是指源对象与拷贝对象共用一份实体，仅仅是引用的变量不同(名称不同)。
 > * 深拷贝是指源对象与拷贝对象互相独立，其中任何一个对象的改动都不会对另外一个对象造成影响。
+
 ```js
 Object.prototype.clone = function() {
     var Constructor = this.constructor,
