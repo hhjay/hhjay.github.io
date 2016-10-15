@@ -1,0 +1,15 @@
+{
+  "name": "hhj-blog",
+  "version": "1.0.0",
+  "description": "huijie person blog for react",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot"
+  },
+  "author": "hhjay",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^15.4.0-rc.4",
+    "react-dom": "^15.4.0-rc.4"
+  }
+}
