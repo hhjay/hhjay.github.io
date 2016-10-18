@@ -16,3 +16,20 @@
 	- [3] 父级元素也设置浮动
 	- [4] 在后面加上清除浮动元素
 - [x] [参考链接](https://www.zhihu.com/question/30938856)
+
+## push和unshift
+- [x] 由例子可知，push效率高于unshift，据说测速的push有100ms而unshift则是10s左右，效率远大于push
+``` javascript
+var arr = [];
+for(var i = 0; i < 100000; i++){
+	arr.push(i);
+}
+console.log(arr);//大约1秒
+
+var arr = [];
+for(var i = 0; i < 100000; i++){
+	arr.unshift(i);
+}
+console.log(arr);// 大约5秒
+```
+- [x] 所以使用push，如果真要从排头进入，那么可以先push之后再reverse即可
