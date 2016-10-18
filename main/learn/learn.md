@@ -33,3 +33,24 @@ for(var i = 0; i < 100000; i++){
 console.log(arr);// 大约5秒
 ```
 - [x] 所以使用push，如果真要从排头进入，那么可以先push之后再reverse即可
+
+## 数组去重 来自echarts的热力图中区域的比较
+- [x] 将x、y轴相等时z应相加
+``` javascript
+[[0, 0, 1], [0, 0, 2]]
+=>
+[[0, 0, 3]]
+```
+- [x] 直接上代码
+``` javascript
+var len = arr.length;
+for(var i = 0; i < len; i++){
+	var temp1 = arr[i];
+	for(var j = i + 1; j < len; j++){
+		var temp2 = arr[j];
+		if(temp1[0] == temp2[0] && temp1[1] == temp2[1]){
+			
+		}
+	}
+}
+```
