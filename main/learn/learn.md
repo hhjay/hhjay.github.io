@@ -44,13 +44,18 @@ console.log(arr);// 大约5秒
 - [x] 直接上代码
 ``` javascript
 var len = arr.length;
+var newArr = [];
 for(var i = 0; i < len; i++){
 	var temp1 = arr[i];
+	var sum = temp1[2];
 	for(var j = i + 1; j < len; j++){
 		var temp2 = arr[j];
 		if(temp1[0] == temp2[0] && temp1[1] == temp2[1]){
-			
+			sum = sum + temp2[2];
+		}else{
+			i = j;
 		}
 	}
+	newArr.push([temp1[0], temp1[1], sum]);
 }
 ```
