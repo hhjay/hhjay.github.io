@@ -75,5 +75,6 @@ for(var i = 0; i < len; i++){
 	- [6] cookie服务器端也可以保存及使用；
 
 ## 操作Dom的效率问题：从innerHTML到jquery及vue、react的virtualDom操作html
+- [ ] 
 
 ## NaN与Null的区别
