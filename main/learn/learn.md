@@ -59,3 +59,12 @@ for(var i = 0; i < len; i++){
 	newArr.push([temp1[0], temp1[1], sum]);
 }
 ```
+
+## [1, 2] + [3, 4] 为什么不等于 [1, 2, 3, 4]
+- [x] 因为[1, 2] + [3, 4]会转为"1,2" + "3,4" = "1,23,4";数组转为字符串
+
+## localStorage、sessionStorage、cookie的区别
+
+## 操作Dom的效率问题：从innerHTML到jquery及vue、react的virtualDom操作html
+
+## NaN与Null的区别
