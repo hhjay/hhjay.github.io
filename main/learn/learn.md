@@ -96,3 +96,8 @@ for(var i = 0; i < len; i++){
 - [ ] 
 
 ## NaN与Null的区别
+
+## ajax请求慢的问题
+
+## 从前端请求到后端java查es
+- [x] 前端发请求到java，java将要查询的条件请求至es集群，从es集群(节点)中找到离散的数据并集装至java，java再将对应的数据返回；
