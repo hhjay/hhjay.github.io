@@ -97,7 +97,16 @@ for(var i = 0; i < len; i++){
 
 ## NaN与Null的区别
 
+## provision headers are shown
+- [x] 请求可能被屏蔽，例如chrome的插件adblock之类的；
+- [x] 前端发送的内容有误；
+- [x] 服务器问题；
+- [x] 可能是按钮触发了表单提交，同时你再请求ajax；
+- [x] 相同的请求数过多及间隔太短，导致加载失效；
+
 ## ajax请求慢的问题
 
 ## 从前端请求到后端java查es
 - [x] 前端发请求到java，java将要查询的条件请求至es集群，从es集群(节点)中找到离散的数据并集装至java，java再将对应的数据返回；
+
+## 
