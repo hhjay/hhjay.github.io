@@ -18,19 +18,23 @@
 - [x] [参考链接](https://www.zhihu.com/question/30938856)
 
 ## push和unshift
-- [x] 由例子可知，push效率高于unshift，据说测速的push有100ms而unshift则是10s左右，效率远大于push
+- [x] 由例子可知，push效率高于unshift，据说测速的push有43.225ms而unshift则是3935.152ms左右，效率远大于push，数据小的时候可能体会不出来，数据比较大的时候就会发现unshift有明显的卡顿
 ``` javascript
+console.time("push");
 var arr = [];
 for(var i = 0; i < 100000; i++){
 	arr.push(i);
 }
-console.log(arr);//大约1秒
+console.log(arr);//  43.225ms
+console.timeEnd("push");
 
+console.time("unshift");
 var arr = [];
 for(var i = 0; i < 100000; i++){
 	arr.unshift(i);
 }
-console.log(arr);// 大约5秒
+console.log(arr);//  3935.152ms
+console.timeEnd("unshift");
 ```
 - [x] 所以使用push，如果真要从排头进入，那么可以先push之后再reverse即可
 
