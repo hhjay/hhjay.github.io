@@ -20,6 +20,8 @@
 ## push和unshift
 - [x] 由例子可知，push效率高于unshift，据说测速的push有43.225ms而unshift则是3935.152ms左右，效率远大于push，数据小的时候可能体会不出来，数据比较大的时候就会发现unshift有明显的卡顿
 ``` javascript
+
+<!-- push -->
 console.time("push");
 var arr = [];
 for(var i = 0; i < 100000; i++){
@@ -28,6 +30,7 @@ for(var i = 0; i < 100000; i++){
 console.log(arr);//  43.225ms
 console.timeEnd("push");
 
+<!-- unshift -->
 console.time("unshift");
 var arr = [];
 for(var i = 0; i < 100000; i++){
@@ -35,8 +38,19 @@ for(var i = 0; i < 100000; i++){
 }
 console.log(arr);//  3935.152ms
 console.timeEnd("unshift");
+
+<!-- push + reverse -->
+console.time("push");
+var arr = [];
+for(var i = 0; i < 100000; i++){
+	arr.push(i);
+};
+arr.reverse();
+console.log(arr);//  69.286ms
+console.timeEnd("push");
+
 ```
-- [x] 所以使用push，如果真要从排头进入，那么可以先push之后再reverse即可
+- [x] 所以使用push，如果真要从排头进入，那么可以先push之后再reverse即可，通过时间的比较，也比unshift的效率高了56.8倍；
 
 ## 数组去重 来自echarts的热力图中区域的比较
 - [x] 将x、y轴相等时z应相加
