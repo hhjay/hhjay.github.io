@@ -115,3 +115,5 @@ for(var i = 0; i < len; i++){
 ## js下载
 - [ ] blob
 - [ ] html5 download
+
+## promise的实现
