@@ -111,3 +111,7 @@ for(var i = 0; i < len; i++){
 
 ## 快速排序、分治法
 - [ ] 。。。今天不想写了
+
+## js下载
+- [ ] blob
+- [ ] html5 download
