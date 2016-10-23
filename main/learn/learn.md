@@ -117,3 +117,5 @@ for(var i = 0; i < len; i++){
 - [ ] html5 download
 
 ## promise的实现
+- [ ] promise对象用于异步操作的消息，它代表了某个事件处理的结果；
+- [ ] 
