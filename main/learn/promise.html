@@ -4,8 +4,20 @@
 	<title>promise 例子</title>
 </head>
 <body>
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.11.0/jquery.js"></script>
 <script type="text/javascript">
-	
+	var example1 = new Promise(function(resolve, reject) {
+		if ( data.success ) {// 异步操作成功
+			resolve(value);
+		}else{
+			reject(error);
+		}
+	});
+	example1.then(function(value) {
+		console.log("success");
+	}, function(value){
+		console.log("faile");
+	})
 </script>
 </body>
 </html>
