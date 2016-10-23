@@ -117,7 +117,8 @@ for(var i = 0; i < len; i++){
 - [ ] html5 download
 
 ## promise的实现
-- [ ] promise对象用于异步操作的消息，它代表了某个事件处理的结果；
-- [ ] promise的特点
+- [x] promise对象用于异步操作的消息，它代表了某个事件处理的结果；
+- [x] promise的特点
 	- [1] 对象状态不受外界影响，分别是三种状态[pending(进行中)、resolve(已完成)、rejected(已失败)]
 	- [2] 一旦改变状态，就不会变
+- [x] promise的目的是为了让回调更优雅，例如ajax中的多级回调；
