@@ -13,10 +13,9 @@
 					url: url,
 					method: "get",
 					success: function(res){
-						console.log(res);
 						resolve(res);
 					},
-					error: function(err){
+					error: function(xhr, statusText){
 						reject(err);
 					}
 				})
@@ -26,10 +25,11 @@
 	}
 
 	example1.get("./promise.php/example1").then(function(res){
-		console.log(res);
+		console.log("res");
 	}, function(err){
-		console.error(err);
+		console.error("err");
 	});
+
 </script>
 </body>
 </html>
