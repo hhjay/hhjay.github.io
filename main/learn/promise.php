@@ -1,5 +1,11 @@
 <?php 
 	function example1(){
-		echo "111111111111111111";
+		echo [
+				"success"=> true, 
+				"data" =>[
+					"name"=> "litiantian", 
+					"chooce"=> "scuec"
+				]
+			];
 	}
 ?>
