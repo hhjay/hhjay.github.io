@@ -132,3 +132,5 @@ for(var i = 0; i < len; i++){
 - [ ] 写个例子
 
 ## less、sass怎么用，区别
+
+## jsonp连接会有断断续续
