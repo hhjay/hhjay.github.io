@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>两个相同id css渲染？js获取？</title>
+	<meta charset="utf-8" />
+	<style type="text/css">
+		#test{
+			width: 100px;height: 50px;
+			background: red;
+			margin: 10px auto;
+			text-align: center;
+			line-height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div id="test">
+		test1
+	</div>
+	<div id="test">
+		test2
+	</div>
+<script>
+	var test = document.getElementById('test');
+	alert(test.innerHTML);
+	/**
+	 * css会渲染全部的相同id
+	 * js获取到的是第一个节点(chrome/ie都是)，js获取元素从上到下，找到对应条件即返回
+	 * js获取dom元素的顺序：先事件捕获、即从外到内找到对应的dom ->再冒泡、即从内到位返回结果 ->所以从外到内找到第一个id后冒泡
+	 * 事件委托：ie或者chrome都是第一个id生效
+	 */
+	
+	document.getElementById("test").addEventListener("click", function(e) {
+		alert("test");
+	}, false);
+	document.getElementById('test').attachEvent("onclick", function(e){
+		alert("xxxxxx");
+	})
+</script>
+</body>
+</html>
