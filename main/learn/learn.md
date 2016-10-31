@@ -145,3 +145,23 @@ for(var i = 0; i < len; i++){
 
 ## 同一个页面多个相同id时 css、js情况
 - [x] 例子：commonId.html
+
+
+## js javascript是单线程的、然而异步是怎么回事?这两者不冲突？
+- [x] 单线程/多线程：js本身是单线程的，即在同一时刻只会有一处代码正在执行，曰js执行线程；而ajax的异步机制是由浏览器的多个常驻线程共同完成，如js执行线程和事件触发线程共同完成、js的执行线程发起异步请求，这时候js的执行线程已经完成、继续往下执行，然后在后面的某一时刻请求完成才会把完成事件插入到该执行线程尾部等待处理；----理解队列、栈
+- [x] 例如setTimeOut/setInterVal也是放在执行线程队列尾部 // 阻塞、非阻塞
+``` javascript
+/**
+ * 执行队列为a c b，触发b之后把定时触发处理函数的执行请求插入到执行队列队尾
+ */
+	console.log("start"); // a
+	setTimeOut(function(){
+		console.log("time out");
+	}, 0); // b
+	console.log("end"); // c
+```
+- [x] [知乎](https://www.zhihu.com/question/20866267)
+- [x] [ryf](http://www.ruanyifeng.com/blog/2014/10/event-loop.html)
+- [x] [moz](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/EventLoop)
+
+## 严格模式和显示模式。。。
