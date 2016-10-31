@@ -5,7 +5,7 @@
 
 
 ``` ps
-前端 					 ____闭包、匿名函数、Dom操作、this、call/apply
+前端_ 					 ____闭包、匿名函数、Dom操作、this、call/apply
 	|					|	 |__[垃圾回收机制](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_Management)
 	|					|
 	|					|____Es6/Es...____promise、async-wait、import、model、const、export
