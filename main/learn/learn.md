@@ -165,3 +165,5 @@ for(var i = 0; i < len; i++){
 - [x] [moz](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/EventLoop)
 
 ## 严格模式和显示模式。。。
+
+## 拼音匹配
