@@ -169,3 +169,6 @@ for(var i = 0; i < len; i++){
 ## 拼音匹配
 - [x] 先把汉字变拼音，然后匹配
 - [x] [链接](http://pinyin.hotoo.me/)
+
+## dom操作效率
+- [x] [例证](./fe-document.html)
