@@ -144,7 +144,7 @@ for(var i = 0; i < len; i++){
 > * 可以抓到数据，获取节点失败。
 
 ## 同一个页面多个相同id时 css、js情况
-- [x] 例子：commonId.html
+- [x] [例子](./example/commonId.html)
 
 
 ## js javascript是单线程的、然而异步是怎么回事?这两者不冲突？
