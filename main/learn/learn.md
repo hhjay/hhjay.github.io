@@ -171,8 +171,9 @@ for(var i = 0; i < len; i++){
 - [x] [链接](http://pinyin.hotoo.me/)
 
 ## dom操作效率
-- [x] [例证](./fe-document.html)
+- [x] [例证](./example/fe-document.html)
 
 ## 日历
 - [ ] 实现日历基本功能；
 - [ ] 可以实现输入，选择选项；
+- [ ] [例子](./example/fe-calendar.html)
