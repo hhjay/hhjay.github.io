@@ -3,10 +3,43 @@
 <head>
 	<title>日历组件</title>
 	<style type="text/css">
-		
+		/*
+		 * 大小屏适应 相互转变
+		 */
+		.calendar-menu{
+			position: absolute;
+			padding: 8px;
+			display: block;
+		}
+		.calendar-contain{
+			position: relative;
+		}
 	</style>
 </head>
 <body>
+<div class="calendar">
+	<div class="calendar-contain">
+		<table class="calendar-table">
+			<thead>
+				<tr>
+					<th>日</th>
+					<th>一</th>
+					<th>二</th>
+					<th>三</th>
+					<th>四</th>
+					<th>五</th>
+					<th>六</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
 <div class="test">
 	
 </div>
@@ -19,13 +52,19 @@ $(document).ready(function() {
 	 * 3、可选上下月
 	 * 4、可选年份
 	 */
-	var jayCalendar = function(dom){
-		this.init(dom);
+	var jayCalendar = function(option){
+		this.option = option;
+		this.init();
 	};
 	jayCalendar.prototype = {
+		startDate: this.startDate || 1970,
+		endDate: this.endDate || 2020,
+		months: this.months || ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二"],
+		weeks: ["日", "一", "二", "三", "四", "五", "六"],
 		today: true,//默认取今天
-		init: function(dom){
-			console.log(dom);
+		date: this.date || new Date(),
+		init: function(){
+			console.log(this);
 		},
 		resDays: function(){
 			// 返回当前月份的第一天星期几
@@ -37,12 +76,24 @@ $(document).ready(function() {
 			 * 	lunarDays: ["初一", "初二"]// 待定义：对应公历
 			 * }
 			 */
+			// if ( today ) {
+			// 	// var date = new Date(),
+			// 		// today = date.getDate(),//今天
+
+			// }
+		},
+		resFirst: function(){
+			// 返回当前月份的第一天星期几
+			var date = this.date.setDate(1);
+			return new Date(date).getDay();
 		},
 		resMonth: function(){
 			// 返回当前月份 对应阴历月份
+			return this.date.getMonth();// 0 ~ 11
 		},
 		resYears: function(){
 			// 返回当前年份 对应干支年份
+			return this.date.getFullYear();
 		},
 		drawDays: function(arr){
 			// 传入数组画日期的
@@ -52,15 +103,40 @@ $(document).ready(function() {
 		},
 		drawYears: function(){
 			// 由传入的年份画
+		},
+		drawWeek: function(){
+			// 根据传入的参数画日历周的头部
+			var week = this.week, resHtml = "";
+			for(var i = 0, len = week.length; i < len; i++){
+				resHtml += "<th>"+ week[i] +"</th>";
+			}
+			return resHtml;
+		},
+		drawAll: function(){
+			// 所有字符串渲染
+		},
+		nextMonth: function(){
+			// 下个月
+		},
+		prevMonth: function(){
+			// 上个月
+		},
+		formatDate: function(){
+			// 传入的yyyy-mm-dd时间格式化 20161008 10:10:10
+		},
+		formatNumber: function(num){
+			return num >= 10 ? num : "0"+ num;
 		}
 	};
 
 	var dom = $(".test");
-	var test = new jayCalendar(dom);
+	var test = new jayCalendar({
+		dom: dom
+	});
 });
 
 /**
- * 		甲午年鼠月
+ * 		 甲午年鼠月
  *  <- 	 2016年06月	  ->
  *  日 一 二 三 四 五 六
  * ----------------------
@@ -71,6 +147,10 @@ $(document).ready(function() {
  *| 30 31				 |
  * ----------------------
  * 多云转晴
+ */
+
+/**
+ * echarts数据名过长的问题：解决方案，将超过多少的字符串换行
  */
 </script>
 </body>
