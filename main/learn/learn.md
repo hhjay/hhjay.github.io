@@ -239,3 +239,21 @@ for(var i = 0; i < len; i++){
  */
 </script>
 ``` 
+- [x] 经典例子
+```JavaScript
+<script type="text/javascript">
+	function A(){
+		var f = [];
+		for(var i = 0; i < 10; i++){
+			f[i] = function(){
+				return i;
+			}
+		}
+		return f;
+	};
+	var m = A(); // 定义函数，未执行
+	// 真正产生环境变量，所以f[i]都指向对应的m的值 f[i]都是10
+	// 只产生一次
+	console.log(m[1]);
+</script>
+```
