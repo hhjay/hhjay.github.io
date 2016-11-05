@@ -183,3 +183,21 @@ for(var i = 0; i < len; i++){
 - [ ] 对过长字符串进行处理：
 	- [1] 设置全部可见->interval: 0；
 	- [2] 对于过长的进行换行操作；
+
+## css的margin塌陷问题
+- [ ] 
+
+## client离线缓存
+- [ ] 建立.manifest或者appcache
+- [ ] 建index.html将文件引入html中
+```html
+<!DOCTYPE html>
+<html manifest="test.manifest">
+<head>
+	<title>chahe test</title>
+</head>
+<body>
+</body>
+</html>
+```
+## js闭包
