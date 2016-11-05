@@ -216,4 +216,24 @@ for(var i = 0; i < len; i++){
  	// 通过m函数，可以获取A函数内部变量的值
 </script>
 ```
-- [ ] 
+- [x] 例子2
+```JavaScript
+<script type="text/javascript">
+	function A(){
+		var x = 1;
+		return function(){
+			x++;
+			console.log(x);
+		}
+	}
+	var a1 = A();
+	a1(); // 2
+	a1(); // 3
+	var a2 = A();
+	a2(); // 2
+	a1(); // 4
+/**
+ * m1在执行中并没有释放内存，固x值一直增加。
+ */
+</script>
+``` 
