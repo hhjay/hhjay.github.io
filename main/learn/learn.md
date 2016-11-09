@@ -258,3 +258,7 @@ for(var i = 0; i < len; i++){
 	console.log(m[1]);
 </script>
 ```
+
+## script引入、require同步引入、AMD区别
+- [x] 从webpack文档看：前端自动化构建工具、模块化工具、资源管理工具；
+- [x]
