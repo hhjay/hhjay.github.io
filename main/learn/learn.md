@@ -266,9 +266,10 @@ for(var i = 0; i < len; i++){
 	- [2] 加载顺序很重要，可能会因为加载顺序不对导致依赖错误；
 	- [3] 开发人员得解决模块/包之间的依赖；
 	- [4] 在大项目中，script列表可能会很长难管理；
+
 - [x] require同步引入: commonJs
 	- [1] 
-		```js
+		```JavaScript
 			require("module");
 			module.exports = some
 		```
@@ -279,3 +280,19 @@ for(var i = 0; i < len; i++){
 	- [3] 缺点
 		- [3.1] 在网络被阻塞的情况下不能很好的被调用，因为网络请求是异步的
 		- [3.2] 不可以同时请求多个模块
+
+- [x] AMD：requireJs
+	- [1]
+		```JavaScript
+			require(["module", "../file"], function(module, file){
+				/* something */
+			});
+			define("mymodule", ["dep1", "dep2"], function(d1, d2){
+				return somthing;
+			})
+		```
+	- [2] 优点
+		- [2.1] 适合网络上的异步请求
+		- [2.2] 可并行加载多个模块
+	- [3] 缺点
+		- [3.1] 编码开销比较大，更难阅读和编写代码
