@@ -5,6 +5,11 @@
 	<style type="text/css">
 		*{padding: 0;margin: 0;}
 		input, select{margin: 20px;}
+		li{
+			width: 10%;
+			list-style: none;
+			display: inline-block;
+		}
 	</style>
 </head>
 <body>
@@ -45,7 +50,41 @@
 		<option>香港特别行政区</option>
 		<option>澳门特别行政区</option>
 	</select>
-	<div class="ul">
+	<div id="ul">
 	</div>
+	<script src="http://cdn.bootcss.com/jquery/1.10.0/jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var opt = $("#province option");
+			var ulHtml = document.createDocumentFragment();
+			for(var i = 0, len = opt.length; i < len; i++){
+				var op = document.createElement("li");
+				var txt = document.createTextNode($("#province option:eq("+ i +")").text());
+				op.appendChild(txt);
+				ulHtml.appendChild(op);
+			}
+			document.getElementById('ul').appendChild(ulHtml);
+		});
+
+		var timer = null;
+		$("#search").keyup(function(event) {
+			if ( timer != null ) {
+				clearTimeout(timer);
+			}
+
+			var _this = $(this),
+				search= _this.val(),
+				list  = $("#ul li");
+			timer = setTimeout(function(){
+				list.show();
+				for(var i = 0, len = list.length; i < len; i++){
+					var listTxt = $("#ul li:eq("+ i +")").text();
+					if ( listTxt.indexOf(search) < 0 ) {
+						$("#ul li:eq("+ i +")").hide();
+					}
+				}
+			}, 1000);
+		});
+	</script>
 </body>
 </html>
