@@ -332,3 +332,12 @@ for(var i = 0; i < len; i++){
 	```
 - [x] 方法2：先转换为整数，做运算，然后再转值
 	- [1] 可能又会出现变成整数过程中会变化(值太大溢出)
+
+## html5输入数字兼容处理
+- [x] 
+
+## display: inline-block间隙问题
+- [x] chrome-8px firefox/ie8+-4px
+- [x] 原因：inline元素之间本身存在间隙、由inline元素之间的空白引起，解决方案：去掉空白符
+	- [1] 例: <a href="">link1</a><!-- --><a href="">link2</a>
+- [x] 首先在ie6下inline-block是换行的，处理方案为：先设置inline样式，再触发haslayout属性，即{*display: block;*zoom:1;}
