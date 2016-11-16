@@ -311,3 +311,22 @@ for(var i = 0; i < len; i++){
 
 ## call、apply区别
 - [ ] 他们的作用都是将函数绑定到另外一个对象上去运行
+
+## 关于减法 数据溢出的问题
+- [x] 例：0.3 - 0.2 = 0.09999999999999998 | 1.1 - 0.1 = 0.10000000000000009
+- [x] 
+	``` JavaScript
+	function dealFloat(n1, n2, sign){
+		var s1 = (n1 +"").split("."), l1 = 0, res = 0;
+		if( s1.length > 1){
+			l1 = s1[1].length;
+		}
+		if( sign == "-"){
+			res = n1 - n2;
+		}
+		if( sign == "+"){
+			res = n1 + n2;
+		}
+		return res.toFixed(l1);
+	}
+	```
