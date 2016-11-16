@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8" />
 	<title>输入数字加减法 html5功能的兼容</title>
 	<style type="text/css">
 		*{padding: 0;margin: 0;}
 		.test{width: 200px;height: 50px;margin: 20px auto;}
 		input{width: 100%;padding: 4px 8px;margin-top: 6px;}
-		.up-or-down{position: absolute;width: 12px;height: 27px;margin: -27px 0 0 0;}
-		.up-or-down .sign-icon{width: 100%;height: 10px;display: block;margin-top: 2px;cursor: pointer;}
+		.up-or-down{
+			position: absolute; *position: relative;
+			margin: -27px 0 0 0;
+			width: 12px;height: 27px;*height: 20px;
+			*zoom: 1;
+		}
+		.up-or-down .sign-icon{
+			width: 100%; height: 10px;
+			display: block; cursor: pointer;
+			margin-top: 2px; *margin-top: -2px;
+		}
 		.up-or-down .sign-icon.sign-up{background: url(./img/up-icon.png) right center no-repeat;}
 		.up-or-down .sign-icon.sign-down{background: url(./img/down-icon.png) right center no-repeat;}
 	</style>
@@ -46,49 +56,68 @@ $(document).ready(function() {
 		testInputVal: function(){
 			var timer = null, that = this;
 			that.dom.keyup(function(event) {
-				if ( timer != null ) clearTimeout(timer);
-				
 				var _this = $(this), value = _this.val();
+				var currKey = 0, e = e || event;
+				currKey = e.keyCode || e.which || e.charCode;
+				value = value.replace(/ /g, "");// 清空空格
+				if ( value.length == 0 ) {
+					value = 0;
+				}
+
+				value = parseFloat(value);
+				if ( currKey == 40 ) {// --
+					value = value - that.step;
+					that.lessOrMore(value);
+				}
+				if ( currKey == 38 ) {// ++
+					value = value + that.step;
+					that.lessOrMore(value);
+				}
+
+				if ( timer != null ) clearTimeout(timer);
 				timer = setTimeout(function(){
-					value = value.replace(/ /g, "");// 清空空格
-					
 					if ( !isNaN(value) ) {// 判断是否是数字
 						value = parseFloat(value);
-						if ( value < that.min ) {
-							alert("过小"); that.dom.val(that.min);
-						}
-						if ( value > that.max ) {
-							alert("过大"); that.dom.val(that.max);
-						}
-						that.dom.val(value);
+						that.lessOrMore(value);
 					}else{
-						alert("请输入合法数字");
+						alert("请输入合法数字"); that.dom.val(0)
 					}
-				}, 400);
+				}, 800);
 			});
+		},
+		upOrDown: function(){// 加or减
+			var that = this;
+			$(document).on('click', '.sign-icon', function(e) {
+				var _this = $(this), value = that.dom.val();
+				if ( value.length == 0 ) {
+					value = 0;
+				}
+
+				value = parseFloat(value);
+				if ( _this.hasClass('sign-up') ) {// ++
+					value = value + that.step;
+					that.lessOrMore(value);
+				}
+				if ( _this.hasClass('sign-down') ) {// --
+					value = value - that.step;
+					that.lessOrMore(value);
+				}
+			});
+		},
+		lessOrMore: function(num){
+			console.log(this);
+			if ( num < this.min ) {
+				alert("过小"); this.dom.val(this.min);
+			}else if ( num > this.max ) {
+				alert("过大"); this.dom.val(this.max);
+			}else{
+				this.dom.val(num);
+			}
 		},
 		init: function(){
 			var dom = this.dom, that = this;
 			var min = that.getmMin(), max = that.getMax(), step = that.getStep();
-			that.markPos(); that.testInputVal();
-
-			$(document).on('click', '.sign-icon', function(event) {
-				var _this = $(this), value = that.dom.val(), value = parseFloat(value);
-				if ( _this.hasClass('sign-up') ) {// ++
-					value = value + that.step;
-					if ( value > that.max ) {
-						alert("过大"); that.dom.val(that.max);
-					}
-					that.dom.val(value);
-				}
-				if ( _this.hasClass('sign-down') ) {// --
-					value = value - that.step;
-					if ( value < that.min ) {
-						alert("过小"); that.dom.val(that.min);
-					}
-					that.dom.val(value);
-				}
-			});
+			that.markPos(); that.testInputVal(); that.upOrDown();
 		}
 	};
 	
