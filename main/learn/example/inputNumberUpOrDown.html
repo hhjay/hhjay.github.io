@@ -66,7 +66,7 @@ $(document).ready(function() {
 
 				value = parseFloat(value);
 				if ( currKey == 40 ) {// --
-					value = value - that.step;
+					value = that.realNumberControl(value, that.step);
 					that.lessOrMore(value);
 				}
 				if ( currKey == 38 ) {// ++
@@ -99,13 +99,19 @@ $(document).ready(function() {
 					that.lessOrMore(value);
 				}
 				if ( _this.hasClass('sign-down') ) {// --
-					value = value - that.step;
+					value = that.realNumberControl(value, that.step);
 					that.lessOrMore(value);
 				}
 			});
 		},
+		// 精度控制、例：0.3-0.2=0.09999999999999998 但我们要显示0.1
+		// TODO暂时只适配减法，目前尚无发现加法有精度问题
+		realNumberControl: function(num1, num2){
+			var s1 = (num1 +"").split("."), res = 0;
+			var l1 = s1.length > 1 ? s1[1].length : 0;
+			return (num1 - num2).toFixed(l1);
+		},
 		lessOrMore: function(num){
-			console.log(this);
 			if ( num < this.min ) {
 				alert("过小"); this.dom.val(this.min);
 			}else if ( num > this.max ) {
