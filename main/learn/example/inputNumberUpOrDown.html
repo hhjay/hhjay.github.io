@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>输入数字加减法 html5功能的兼容</title>
+	<style type="text/css">
+		*{padding: 0;margin: 0;}
+		.test{width: 200px;height: 50px;margin: 20px auto;}
+		input{width: 100%;padding: 4px 8px;margin-top: 6px;}
+		.up-or-down{position: absolute;width: 12px;}
+	</style>
+</head>
+<body>
+	<div class="test">
+		<label for="number">数字: 
+			<input type="text" min="0" max="1000" step="1" id="number" />
+		</label>
+		<div class="up-or-down">
+			<span class="sign-icon sign-up"></span>
+			<span class="sign-icon sign-down"></span>
+		</div>
+	</div>
+<script src="http://cdn.bootcss.com/jquery/1.10.0/jquery.js"></script>
+<script type="text/javascript">
+	// 使用:before在ie下不能显示 所以在此使用背景图片
+$(document).ready(function() {
+	var html5Number = function(dom) {
+		this.dom = dom;
+	};
+	html5Number.prototype = {
+		getmMin: function(){
+			this.min = !!this.dom.attr("min") ? this.dom.attr("min") : 0;
+		},
+		getMax: function(){
+			this.max = !!this.dom.attr("max") ? this.dom.attr("max") : 1000;
+		},
+		getStep: function(){
+			this.step = !!this.dom.attr("step") ? this.dom.attr("step") : 1;
+		},
+		init: function(){
+			var dom = this.dom;
+			
+			console.log(this.dom);
+		}
+	};
+	
+	var test = new html5Number($("#number"));
+	test.init();
+});
+</script>
+</body>
+</html>
