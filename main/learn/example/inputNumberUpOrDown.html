@@ -6,7 +6,10 @@
 		*{padding: 0;margin: 0;}
 		.test{width: 200px;height: 50px;margin: 20px auto;}
 		input{width: 100%;padding: 4px 8px;margin-top: 6px;}
-		.up-or-down{position: absolute;width: 12px;}
+		.up-or-down{position: absolute;width: 12px;height: 27px;margin: -27px 0 0 0;}
+		.up-or-down .sign-icon{width: 100%;height: 10px;display: block;margin-top: 2px;cursor: pointer;}
+		.up-or-down .sign-icon.sign-up{background: url(./img/up-icon.png) right center no-repeat;}
+		.up-or-down .sign-icon.sign-down{background: url(./img/down-icon.png) right center no-repeat;}
 	</style>
 </head>
 <body>
@@ -28,18 +31,64 @@ $(document).ready(function() {
 	};
 	html5Number.prototype = {
 		getmMin: function(){
-			this.min = !!this.dom.attr("min") ? this.dom.attr("min") : 0;
+			this.min = !!this.dom.attr("min") ? parseFloat(this.dom.attr("min")) : 0;
 		},
 		getMax: function(){
-			this.max = !!this.dom.attr("max") ? this.dom.attr("max") : 1000;
+			this.max = !!this.dom.attr("max") ? parseFloat(this.dom.attr("max")) : 1000;
 		},
 		getStep: function(){
-			this.step = !!this.dom.attr("step") ? this.dom.attr("step") : 1;
+			this.step = !!this.dom.attr("step") ? parseFloat(this.dom.attr("step")) : 1;
+		},
+		markPos: function(){//控制加减按钮的位置
+			// 为什么要加7？
+			$(".up-or-down").css("margin-left", this.dom.width() + 7);
+		},
+		testInputVal: function(){
+			var timer = null, that = this;
+			that.dom.keyup(function(event) {
+				if ( timer != null ) clearTimeout(timer);
+				
+				var _this = $(this), value = _this.val();
+				timer = setTimeout(function(){
+					value = value.replace(/ /g, "");// 清空空格
+					
+					if ( !isNaN(value) ) {// 判断是否是数字
+						value = parseFloat(value);
+						if ( value < that.min ) {
+							alert("过小"); that.dom.val(that.min);
+						}
+						if ( value > that.max ) {
+							alert("过大"); that.dom.val(that.max);
+						}
+						that.dom.val(value);
+					}else{
+						alert("请输入合法数字");
+					}
+				}, 400);
+			});
 		},
 		init: function(){
-			var dom = this.dom;
-			
-			console.log(this.dom);
+			var dom = this.dom, that = this;
+			var min = that.getmMin(), max = that.getMax(), step = that.getStep();
+			that.markPos(); that.testInputVal();
+
+			$(document).on('click', '.sign-icon', function(event) {
+				var _this = $(this), value = that.dom.val(), value = parseFloat(value);
+				if ( _this.hasClass('sign-up') ) {// ++
+					value = value + that.step;
+					if ( value > that.max ) {
+						alert("过大"); that.dom.val(that.max);
+					}
+					that.dom.val(value);
+				}
+				if ( _this.hasClass('sign-down') ) {// --
+					value = value - that.step;
+					if ( value < that.min ) {
+						alert("过小"); that.dom.val(that.min);
+					}
+					that.dom.val(value);
+				}
+			});
 		}
 	};
 	
