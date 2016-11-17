@@ -34,7 +34,11 @@
 	</div>
 <script src="http://cdn.bootcss.com/jquery/1.10.0/jquery.js"></script>
 <script type="text/javascript">
-	// 使用:before在ie下不能显示 所以在此使用背景图片
+// 使用:before在ie下不能显示 所以在此使用背景图片
+// 使用说明：
+// 		html: <input type="text" min="1" max="1000" step="1" /> 暂时还没有自己创建dom，所以那个icon也得自己写
+// 		 css: copy我的css即可，已对ie7做兼容
+// 		  js: 引用我的js、然后var t = new html5Number($("对应的dom元素"))
 $(document).ready(function() {
 	var html5Number = function(dom) {
 		this.dom = dom;
@@ -128,6 +132,7 @@ $(document).ready(function() {
 	};
 	
 	var test = new html5Number($("#number"));
+	console.log(test);
 	test.init();
 });
 </script>
