@@ -343,3 +343,10 @@ for(var i = 0; i < len; i++){
 - [x] 原因：inline元素之间本身存在间隙、由inline元素之间的空白引起，解决方案：去掉空白符
 	- [1] 例: <a href="">link1</a><!-- --><a href="">link2</a>
 - [x] 首先在ie6下inline-block是换行的，处理方案为：先设置inline样式，再触发haslayout属性，即{*display: block;*zoom:1;}
+
+## Uncaught SyntaxError: Block-scoped declarations (let, const, function, class) not yet supported outside strict mode
+- [x] 语法错误: 在严格模式之外，暂不支持快作用范围的声明。
+- [x] 解决方案
+	- [1] 使用严格模式 "use strict"
+	- [2] 将let改成var
+	- [3] 升级浏览器啊，使用chrome啊
