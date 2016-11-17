@@ -336,6 +336,7 @@ for(var i = 0; i < len; i++){
 ## html5输入数字兼容处理
 - [x] 实现功能：上下按键可加减、点击上下可加减、可自行输入、过滤非数字、判断最大最小值、精度判断
 - [x] [链接](./example/inputNumberUpOrDown.html)
+- [x] [参考](http://www.helloweba.com/demo/spinner/bootstrap.html)
 
 ## display: inline-block间隙问题
 - [x] chrome-8px firefox/ie8+-4px
