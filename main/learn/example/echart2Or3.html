@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>echarts2.x和3.x版本的兼容</title>
+	<style type="text/css">
+		#test{width: 800px;height: 500px;margin: 20px auto;border: 1px solid #ddd;padding: 8px;}
+	</style>
+	
+</head>
+<body>
+<div id="test">
+</div>
+<!-- <script src="http://cdn.bootcss.com/echarts/3.0.2/echarts.js"></script> -->
+<!-- <script src="./js/china.js"></script> -->
+
+<script src="http://cdn.bootcss.com/require.js/1.0.3/require.js"></script>
+<script type="text/javascript">
+    require.config({
+        paths: {
+            'ec2': "http://cdn.bootcss.com/echarts/2.2.7/echarts", 
+            'ec3': "http://cdn.bootcss.com/echarts/3.0.2/echarts"
+        }
+    });
+    require(['ec2', 'ec3'], function (ec2, ec3) {
+		    console.log(ec2, ec3);
+		 	// var myChart = ec.init(document.getElementById('test'));
+		 	// console.log("1");
+		 	// myChart.showLoading({
+		 	//    text: '加载中...',
+		 	//    effect: 'bubble',
+		 	//    textStyle: {
+		 	//        fontSize: 18
+		 	//    }
+		 	// });
+        }
+    );
+	
+ 	//  function loadXMLDoc(){
+	// 	var xhr = new XMLHttpRequest();
+	// 	xhr.onreadystatechange = function(){
+	// 	  	if (xhr.readyState == 4 && xhr.status == 200){
+	// 	  		var res = xhr.responseText;
+	// 	  		// setTimeout(function (){
+	// 			    console.log("2");
+	// 				var myChart = echarts.init(document.getElementById('test'));
+	// 		     //    var option = JSON.parse(res);
+	// 			    // console.log("3");
+	// 			    // myChart.setOption(option);
+	// 			// }, 2000);
+	// 	   	}
+	// 	}
+	// 	xhr.open("GET", "./data.json", true);
+	// 	xhr.send();
+	// }
+	// loadXMLDoc();
+</script>
+</body>
+</html>

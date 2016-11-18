@@ -353,4 +353,5 @@ for(var i = 0; i < len; i++){
 
 ## echarts2.x和echarts3.x的版本兼容问题
 - [x] showloading、hideloading、setoption
+- [x] 好像又是因为require引入顺序问题，2.x的js竟然在3.x的js后面执行
 - [x] [例子](./echart2Or3.html)
