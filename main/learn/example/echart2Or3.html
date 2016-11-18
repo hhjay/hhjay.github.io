@@ -10,49 +10,52 @@
 <body>
 <div id="test">
 </div>
-<!-- <script src="http://cdn.bootcss.com/echarts/3.0.2/echarts.js"></script> -->
-<!-- <script src="./js/china.js"></script> -->
+<!-- <script src="http://cdn.bootcss.com/echarts/3.0.2/echarts.min.js"></script>
+<script src="./js/china.js"></script> -->
 
 <script src="http://cdn.bootcss.com/require.js/1.0.3/require.js"></script>
+
 <script type="text/javascript">
     require.config({
         paths: {
-            'ec2': "http://cdn.bootcss.com/echarts/2.2.7/echarts", 
-            'ec3': "http://cdn.bootcss.com/echarts/3.0.2/echarts"
+            echarts: "http://cdn.bootcss.com/echarts/2.2.7/echarts",
+            ec3: "http://cdn.bootcss.com/echarts/3.0.2/echarts",
+            china: "./js/china"
+        },
+        shim: {
+        	ec3: {
+        		deps: ["ec3", "china"],
+        		exports: "china"
+        	}
         }
     });
-    require(['ec2', 'ec3'], function (ec2, ec3) {
-		    console.log(ec2, ec3);
-		 	// var myChart = ec.init(document.getElementById('test'));
-		 	// console.log("1");
-		 	// myChart.showLoading({
-		 	//    text: '加载中...',
-		 	//    effect: 'bubble',
-		 	//    textStyle: {
-		 	//        fontSize: 18
-		 	//    }
-		 	// });
-        }
-    );
+    require(['echarts', "ec3"], function(ec2, ec3) {
+    	var myChart = ec2.init(document.getElementById('test'));
+		myChart.showLoading({
+		   text: '加载中...',
+		   effect: 'bubble',
+		   textStyle: {
+		       fontSize: 18
+		   }
+		});
+
+		function loadXMLDoc(){
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function(){
+			  	if (xhr.readyState == 4 && xhr.status == 200){
+			  		var res = xhr.responseText;
+					var myChart3 = ec3.init(document.getElementById('test'));
+				    var option = JSON.parse(res);
+					myChart3.setOption(option);
+			   	}
+			}
+			xhr.open("GET", "./data.json", true);
+			xhr.send();
+		}
+		loadXMLDoc();
+    });
 	
- 	//  function loadXMLDoc(){
-	// 	var xhr = new XMLHttpRequest();
-	// 	xhr.onreadystatechange = function(){
-	// 	  	if (xhr.readyState == 4 && xhr.status == 200){
-	// 	  		var res = xhr.responseText;
-	// 	  		// setTimeout(function (){
-	// 			    console.log("2");
-	// 				var myChart = echarts.init(document.getElementById('test'));
-	// 		     //    var option = JSON.parse(res);
-	// 			    // console.log("3");
-	// 			    // myChart.setOption(option);
-	// 			// }, 2000);
-	// 	   	}
-	// 	}
-	// 	xhr.open("GET", "./data.json", true);
-	// 	xhr.send();
-	// }
-	// loadXMLDoc();
+ 	
 </script>
 </body>
 </html>
