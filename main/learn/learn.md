@@ -350,3 +350,7 @@ for(var i = 0; i < len; i++){
 	- [1] 使用严格模式 "use strict"
 	- [2] 将let改成var
 	- [3] 升级浏览器啊，使用chrome啊
+
+## echarts2.x和echarts3.x的版本兼容问题
+- [x] showloading、hideloading、setoption
+- [x] [例子](./echart2Or3.html)
