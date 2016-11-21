@@ -73,7 +73,22 @@
 	```
 	- [2] method2
 	``` javascript
-	
+	var x = [], y = [], res = [];
+	var xFactor = xxx;
+	for(var i = 0; i < xMax / xFactor; i++){
+		var t = i * xFactor + "~" + (i+1) * xFactor;
+		x.push(t);
+		res.push([]);
+	}
+	for(var j = 0; j < yMax; j++){
+		y.push(j);
+	}
+	for(var k = 0; k < x.length; k++){
+		for(var z = 0; z < y.length; z++){
+			res[k].push(0);
+		}
+	}
+	// 在将对应的加减放在二维数组里
 	```
 
 ## [1, 2] + [3, 4] 为什么不等于 [1, 2, 3, 4]
