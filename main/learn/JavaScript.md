@@ -52,23 +52,29 @@
 [[0, 0, 3]]
 ```
 - [x] 直接上代码
-``` javascript
-var len = arr.length;
-var newArr = [];
-for(var i = 0; i < len; i++){
-	var temp1 = arr[i];
-	var sum = temp1[2];
-	for(var j = i + 1; j < len; j++){
-		var temp2 = arr[j];
-		if(temp1[0] == temp2[0] && temp1[1] == temp2[1]){
-			sum = sum + temp2[2];
-		}else{
-			i = j;
+	- [1] method1
+	``` javascript
+	// 有个问题 就是没有排好序，所以会有问题
+	var len = arr.length;
+	var newArr = [];
+	for(var i = 0; i < len; i++){
+		var temp1 = arr[i];
+		var sum = temp1[2];
+		for(var j = i + 1; j < len; j++){
+			var temp2 = arr[j];
+			if(temp1[0] == temp2[0] && temp1[1] == temp2[1]){
+				sum = sum + temp2[2];
+			}else{
+				i = j;
+			}
 		}
+		newArr.push([temp1[0], temp1[1], sum]);
 	}
-	newArr.push([temp1[0], temp1[1], sum]);
-}
-```
+	```
+	- [2] method2
+	``` javascript
+	
+	```
 
 ## [1, 2] + [3, 4] 为什么不等于 [1, 2, 3, 4]
 - [x] 因为[1, 2] + [3, 4]会转为"1,2" + "3,4" = "1,23,4";数组转为字符串
