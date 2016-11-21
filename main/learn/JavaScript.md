@@ -170,10 +170,11 @@
 - [ ] [例子](./example/fe-calendar.html)
 
 ## echarts中数据名过长的解决方案
-- [ ] 先解决字符串是否过长；
-- [ ] 对过长字符串进行处理：
+- [x] 先解决字符串是否过长；
+- [x] 对过长字符串进行处理：
 	- [1] 设置全部可见->interval: 0；
 	- [2] 对于过长的进行换行操作；
+- [x] [link](./example/js-pro/echarts-name-long.html)
 
 ## js闭包
 - [x] [链接](http://www.html5cn.org/article-9958-1.html);
