@@ -35,7 +35,10 @@
 	- [1] 例: <a href="">link1</a><!-- --><a href="">link2</a>
 - [x] 首先在ie6下inline-block是换行的，处理方案为：先设置inline样式，再触发haslayout属性，即{*display: block;*zoom:1;}
 
-## less、sass怎么用，区别
+## less、sass区别
+- [x] sass可以写出重复利用的方法，可以写逻辑语句、条件语句和循环语句，虽然less也可以做但less效率比较低且不够直观
+- [x] 提供给sass库(例Compass)比较多，Compass也可以让你添加第三方框架，less则比较少
+- [x] less在于外型、语法、结构上很像css；但sass有个问题就是要ruby、命令行、转换到另外的sass需要一定的时间、
 
 ## less
 - [ ] less是一门css预处理语言，拓展了css语言，增加了变量、函数等特征，是css更容易维护和拓展
