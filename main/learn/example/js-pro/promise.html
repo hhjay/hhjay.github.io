@@ -6,30 +6,115 @@
 <body>
 <script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.11.0/jquery.js"></script>
 <script type="text/javascript">
-	var example1 = {
-		get: function(url){
-			var promise = new Promise(function(resolve, reject) {
-				$.ajax({
-					url: url,
-					method: "get",
-					success: function(res){
-						resolve(res);
-					},
-					error: function(xhr, statusText){
-						reject(err);
-					}
-				})
-			});
-			return promise;
-		}
-	}
+	// var example1 = {
+	// 	get: function(url){
+	// 		var promise = new Promise(function(resolve, reject) {
+	// 			$.ajax({
+	// 				url: url,
+	// 				method: "get",
+	// 				success: function(res){
+	// 					resolve(res);
+	// 				},
+	// 				error: function(xhr, statusText){
+	// 					reject(err);
+	// 				}
+	// 			})
+	// 		});
+	// 		return promise;
+	// 	}
+	// }
+	// example1.get("./promise.php/example1").then(function(res){
+	// 	console.log("res");
+	// }, function(err){
+	// 	console.error("err");
+	// });
 
-	example1.get("./promise.php/example1").then(function(res){
-		console.log("res");
-	}, function(err){
-		console.error("err");
-	});
 
+	// // 将ajax多级回调优雅写出来
+	// // 那如果更多的回调呢？
+	// // 1 =>
+	// getList1().then(function(res1){
+	// 	if ( /*身份*/ ) {
+	// 		getList2(res1.identity).then(function(res2){
+	// 			/* 根据list2的id查找对应的list3 */
+	// 			getList3(res2.id).then(function(res){
+	// 				/* 
+	// 				 * list3渲染
+	// 				 * 通过list3的title或者 
+	// 				 */
+	// 				rendList(res).then(function(){
+	// 					console.log("success draw list");
+	// 				});
+	// 			})
+	// 		})
+	// 	}
+	// })
+	// // 2 =>
+	// getList1()
+	// 	.then(getList2, getError)
+	// 	.then(getList3, getError)
+	// 	.... // more callback
+
+
+	// // 1 =>
+	// getList().then(function(mList){
+	// 	mList.forEach(function(m){
+	// 		resolveList(m.id);
+	// 	})
+	// 	// next 想在后面加个什么，但是这操作需要等待mList的迭代执行完才可以
+	// 	console.log("ssss");// 这时候会在循环没结束就直接log
+	// }, failCallbacks);
+	// // 2 =>优化 log可以在循环之后执行
+	// getList().then(function(mList){
+	// 	var tasks = [];
+	// 	mList.forEach(function(m){
+	// 		tasks.push(resolveList(m));
+	// 	});
+	// 	// 使用Promise.all
+	// 	/* 
+	// 	 * Promise.all用于将多个Promise实例，包装成一个新的Promise实例
+	// 	 * Promise.all接受一个数组作为参数，数组的元素都是Promise对象的实例
+	// 	 * 数组里的所有都进入Fulfilled(完成)，Promise.all返回的实例才是Fulfilled
+	// 	 * 数组里的某个Promise实例进入Rejected，Promise.all返回的实例就是Rejected
+	// 	 */
+	// 	return Promise.all(tasks);
+	// }, failCallbacks);
+	// // 3 =>再换
+	// getList.then(function(mList){
+	// 	return Promise.all(mList.map(m){
+	// 		return resolveList(m);
+	// 	});
+	// }, failCallbacks);
+
+
+	// var d = new Date();
+	// // 创建一个promise实例，该实例在2秒后进入fulfilled状态
+	// var promise1 = new Promise(function(resolve, reject) {
+	//     setTimeout(function(){
+	//     	resolve('resolve from promise 1');
+	//     }, 2000);
+	// });
+	// // 创建一个promise实例，该实例在1秒后进入fulfilled状态
+	// var promise2 = new Promise(function(resolve, reject) {
+	//     setTimeout(function(){
+	//     	resolve(promise1);
+	//     }, 1000); // resolve(promise1)
+	// });
+	// promise2.then(
+	//     result => console.log('result:', result, new Date() - d),
+	//     error => console.log('error:', error)
+	// );
+	/* 最后输出 result: resolve from promise 1 2001
+	 * a、doc=>
+	 * 	1、如果x是一个Promise实例，则以x状态作为Promise的状态
+	 * 		1.1、x为pending，则Promise状态也为pending直到x变换
+	 * 		1.2、x为Fulfilled，则Promise的状态为Fulfilled且将x的不可变值作为Promise的~
+	 * 		1.3、x为rejected，则Promise的状态也为rejected且将x的不可变原因作为Promise的~
+	 *  2、如果x不是对象或函数，则将promise状态转换为Fulfilled且x作为Promise的不可变原因
+	 * b、简单来说，promise2中调用了resolve(promise1)，此时promise1的状态会传递给promise2(promise1的状态决定了promise2的状态)，所以promise2的状态进入Fulfilled状态，则promise1也会同时进入
+	 */
+	
+// [copy by](http://imweb.io/topic/57a0760393d9938132cc8da9)
 </script>
 </body>
 </html>
