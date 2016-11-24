@@ -27,17 +27,22 @@
 	</div> -->
 
 	<!-- 只会出现两者的较大者，而不是两者相加，为何？ -->
-	<p style="margin-bottom: 30px;">aaaaaaaaaaaaaa</p>
-	<p style="margin-top: 20px;">bbbbbbbbbbbbbb</p>
+	<!-- <p style="margin-bottom: 30px;">aaaaaaaaaaaaaa</p>
+	<p style="margin-top: 20px;">bbbbbbbbbbbbbb</p> -->
 
 	<!-- 会出现a、b之间有30px的间距，为何？ -->
-	<p class="a">aaaaaaaaaaaaaa</p>
+	<!-- <p class="a">aaaaaaaaaaaaaa</p>
 	<p style="margin-top: 20px;margin-bottom: 30px;"></p>
-	<p class="b">bbbbbbbbbbbbbb</p>
+	<p class="b">bbbbbbbbbbbbbb</p> -->
 
 	<!-- 出现负边距的时候，(最大正边距)20+(-30)(最小负边距) = -10，
 		 所以这两个元素的实际距离将变成-10 -->
-	<p style="margin-bottom: -30px;">aaaaaaaaaaaaaa</p>
-	<p style="margin-top: 20px;">bbbbbbbbbbbbbb</p>
+	<!-- <p style="margin-bottom: -30px;">aaaaaaaaaaaaaa</p>
+	<p style="margin-top: 20px;">bbbbbbbbbbbbbb</p> -->
+
+	<!-- 只会出现两者的较大者，而不是两者相加，为何？ -->
+	<p style="margin-top: 30px;">
+		<p style="margin-top: 20px;">aaaaaaaaaaaaaaaaa</p>
+	</p>
 </body>
 </html>
