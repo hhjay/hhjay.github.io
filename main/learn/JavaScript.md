@@ -334,3 +334,6 @@
 
 ## 下拉无限更新
 - [x] [例子](./example/js-pro/unlimit-scroll.html)
+
+## 字符串拼接和数组push效率
+- [x] [linl](https://www.zhihu.com/question/19747496)
