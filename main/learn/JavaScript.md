@@ -8,6 +8,8 @@
 	- [1] 首先全局安装babel、webpack、webpack-dev-server
 	- [2] npm install babel/webpack/webpack-dev-server -g
 - [ ] 直接引入js
+- [ ] webpack + react
+	- [1] 
 
 ## push和unshift
 - [x] 由例子可知，push效率高于unshift，据说测速的push有43.225ms而unshift则是3935.152ms左右，效率远大于push，数据小的时候可能体会不出来，数据比较大的时候就会发现unshift有明显的卡顿
@@ -334,3 +336,10 @@
 
 ## 下拉无限更新
 - [x] [例子](./example/js-pro/unlimit-scroll.html)
+
+## 为什么使用事件委托
+- [x] 改善性能：元素绑定监听都会占用内存，假设页面有n行表格，每一行都占用，那占用的内存是不是会很多？
+- [x] 使用事件委托可以减少监听数量，html会不会好看一点，dom也会更易于维护。
+
+## echarts中series值为空('-')的时候，不显示灰色框
+- [x] 将series中的calculable设置为false即可
