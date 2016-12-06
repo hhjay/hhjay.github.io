@@ -343,3 +343,6 @@
 
 ## echarts中series值为空('-')的时候，不显示灰色框
 - [x] 将series中的calculable设置为false即可
+
+## 字符串拼接和数组push效率
+- [x] [linl](https://www.zhihu.com/question/19747496)
