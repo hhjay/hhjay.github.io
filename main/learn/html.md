@@ -35,3 +35,19 @@
 
 ## 在页面添加评注
 - [ ] [link](http://www.html-js.com/article/The-front-end-of-the-official-about-the-new-function-column-mass-just-online-commentary)
+
+## 图片预加载、减少图片加载
+- [x] css背景：将所有图片放在背景图、之后调用路径不变就不会再次请求图片
+	- [1] 
+		```css
+			background: url(xxx.png) no-repeat -9999px -9999px;
+		```
+- [x] js预加载：获取将要加载的图片url，将对应的图片加载
+	- [1] 
+		```JavaScript
+			var img = [];
+			for(var i = 0, len = url.length; i < len; i++){
+				img[i] = new Image();
+				img[i].src = url[i];
+			}
+		```
