@@ -346,3 +346,12 @@
 
 ## 字符串拼接和数组push效率
 - [x] [linl](https://www.zhihu.com/question/19747496)
+
+## switch/case 和 if/else 效率
+- [x] 判断条件比较少的时候，感觉不到差距
+- [x] 判断条件多的时候，ifelse每次都要判断，故ifelse速度取决于判断到达最后一个条件的时间，所以if/else的效率为O(n)
+- [x] switch使用了二叉树
+	- [1] [二叉查找树](https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%85%83%E6%90%9C%E5%B0%8B%E6%A8%B9)，一个无序序列可以通过构造一颗二叉查找树变成一个有序序列，构造树的过程即为对无序序列查找的过程；
+	- [2] switch/case会被分配到一个连续的查找表中，其中不连续的部分也加上了相应的条目，switch/case表的大小不取决于switch/case的多少，而取决于最大最小值的间距；
+	- [3] 那么得到结论，switch/case的效率为O(1)
+- [x] [参考](http://stackoverflow.com/questions/767821/is-else-if-faster-than-switch-case)
