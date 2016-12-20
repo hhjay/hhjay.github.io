@@ -355,3 +355,13 @@
 	- [2] switch/case会被分配到一个连续的查找表中，其中不连续的部分也加上了相应的条目，switch/case表的大小不取决于switch/case的多少，而取决于最大最小值的间距；
 	- [3] 那么得到结论，switch/case的效率为O(1)
 - [x] [参考](http://stackoverflow.com/questions/767821/is-else-if-faster-than-switch-case)
+
+## 好文链接
+- [x] [前端模块化开发的价值](https://github.com/seajs/seajs/issues/547)
+- [x] [前端模块化开发那点历史](https://github.com/seajs/seajs/issues/588)
+- [x] [玉伯与dexteryy关于ozJS的讨论](https://github.com/dexteryy/OzJS/issues/10)
+- [x] [如何向开源社区提问题](https://github.com/seajs/seajs/issues/545)
+- [x] [某黑客对于提问的看法](http://www.wapm.cn/smart-questions/smart-questions-zh.html)
+- [x] [开源前端框架纵横谈](http://www.csdn.net/article/2013-04-15/2814893)
+- [x] gitbook
+	- [1] [JavaScript设计模式](https://leohxj.gitbooks.io/front-end-database/content/javascript-design-pattern/index.html)
