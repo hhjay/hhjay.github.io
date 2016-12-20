@@ -61,3 +61,57 @@
 	- [1] W3c / html5 / ...
 	- [2] BOM
 	- [3] DOM
+- [x] [link](https://www.zhihu.com/question/20455165)
+
+## 浏览器解析html方式
+- [x] 怪异模式(Quirks mode)
+	- [1] 标准兼容模式[未]开启，也叫"混杂模式"
+	- [2] 向后兼容，向IE5.5兼容
+	```html
+		<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+		<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	```
+- [x] 标准兼容模式[已]开启 -> 标准模式(Strict mode)
+	- [1] 代表了对css1规范的兼容(即IE6)
+	```html
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Strict//EN">
+	```
+- [x] html
+	- [1] html 2.x
+		- [1.1] 
+			```html
+				<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+			```
+	- [2] html 3.x
+		- [2.1]
+			```html
+				<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+			```
+	- [3] html 4.x
+		- [3.1] html 4.0.1严格版
+			```html
+				<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+			```
+		- [3.2] html 4.0.1过渡版
+			```html
+				<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+			```
+	- [4] xhtml 1.0
+		- [4.1] xhtml 1.0严格版
+			```html
+				<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+			```
+		- [4.2] xhtml 1.0过渡版
+			```html
+				<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+			```
+	- [5] xhtml 1.1
+		- [5.1] xhtml 1.1严格版
+			```html
+				<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+			```
+	- [6] html5
+		```html
+			<!DOCTYPE html>
+		```
