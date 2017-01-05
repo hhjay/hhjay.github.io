@@ -115,3 +115,6 @@
 		```html
 			<!DOCTYPE html>
 		```
+- [x] 参考链接 
+	- [1] [link1](http://w3help.org/zh-cn/casestudies/002)
+	- [2] [link2](https://msdn.microsoft.com/en-us/library/bb250395.aspx)
