@@ -54,3 +54,8 @@
 - [ ] 广大社区支持：由多个科技公司和数百个开发人员的积极支持和开发
 - [ ] 架构：很多框架使用sass构建，例如[Compass](http://compass-style.org/)、[Bourbon](http://bourbon.io/)
 - [ ] [link](http://sass-lang.com/)
+
+## link || @import
+- [x] link会并行下载，eg:在link下a.css和b.css都是7ms
+- [x] @import是串行下载，先等前资源下载好才进行下一个
+- [x] [例子](./example/css-pro/linkOrImport.html)
