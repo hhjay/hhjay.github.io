@@ -15,6 +15,10 @@
 	- [2] 详情参考[由于浮动而导致父级元素高度塌陷](#由于浮动而导致父级元素高度塌陷)
 - [ ] [link](./example/css-pro/marginSink.html) 
 
+## css中display: inline-block;会往下掉
+- [x] 原因：inline-block元素在垂直位置上是与父级元素的基线(baseline)对齐
+- [x] 解决方案：使用vertical-align向上对齐
+- [x] [参考](http://www.ituring.com.cn/article/201579)
 
 ## 由于浮动而导致父级元素高度塌陷
 - [x] 浮动原理
