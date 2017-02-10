@@ -115,6 +115,10 @@
 		```html
 			<!DOCTYPE html>
 		```
+
+- [x] [页面渲染](https://www.zhihu.com/question/20117417)
+	- [1] (http://coolshell.cn/articles/9666.html)
+
 - [x] 参考链接 
 	- [1] [link1](http://w3help.org/zh-cn/casestudies/002)
 	- [2] [link2](https://msdn.microsoft.com/en-us/library/bb250395.aspx)
