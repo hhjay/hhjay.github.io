@@ -359,6 +359,12 @@
 	- [3] 那么得到结论，switch/case的效率为O(1)
 - [x] [参考](http://stackoverflow.com/questions/767821/is-else-if-faster-than-switch-case)
 
+## 字符串反转
+``` JavaScript
+function reversal(str){
+	str.split("").reverse().join("");
+}
+```
 
 ## 好文链接
 - [x] [前端模块化开发的价值](https://github.com/seajs/seajs/issues/547)
