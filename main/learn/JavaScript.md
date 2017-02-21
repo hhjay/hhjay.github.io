@@ -366,6 +366,35 @@ function reversal(str){
 }
 ```
 
+## js串行执行
+- [x] 函数顺序执行 => fn1(); fn2(); fn3();
+- [x] 将函数入栈，然后依次执行 => stack.push(fn1, fn2, fn3); //优点 可以放入匿名函数等
+- [x] 有setTimeout(function(){ fn3(); });会将改函数放到最后执行，解决
+	``` JavaScript
+	function fn1(){
+		// code
+		next();
+	}
+	function fn1(){
+		setTimeout(funtion(){
+			// code
+			next();
+		}, 0);
+		next();
+	}
+	function fn1(){
+		// code
+		next();
+	}
+	var stack = []; stack.push(fn1, fn2, fn3);
+	var index = 0; //当前执行函数位置
+	function next(){
+		var fn = stack[index];
+		index++;
+		if( typeof fn === "function" ) fn();
+	}
+	```
+
 ## 好文链接
 - [x] [前端模块化开发的价值](https://github.com/seajs/seajs/issues/547)
 - [x] [前端模块化开发那点历史](https://github.com/seajs/seajs/issues/588)
