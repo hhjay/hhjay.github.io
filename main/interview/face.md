@@ -299,3 +299,6 @@ Object.prototype.clone = function() {
     - [2] 无连接：每次连接只处理一个请求，请求时建立连接、请求完成释放连接
 - [x] http基于tcp，不用考虑数据包乱序、丢失等问题；udp可以接受数据丢失
 - [x] 网络传输协议分为网络层(IP、ICMP协议...)、传输层(TCP、UDP协议)、应用层(FTP、HTTP、TELNET、SMTP、DNS等协议)
+
+### 防Sql注入
+- [x] 将html、js标签首字符串转义：<script></script> => &lt;script>&/script>
