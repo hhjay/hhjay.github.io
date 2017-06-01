@@ -1,4 +1,4 @@
-# 实习题目
+# 面试题目
 
 ------
 
@@ -302,3 +302,108 @@ Object.prototype.clone = function() {
 
 ### 防Sql注入
 - [x] 将html、js标签首字符串转义：<script></script> => &lt;script>&/script>
+
+
+## 北京微影时代深圳研发中心
+### less sass优缺点
+- 基本语法
+- 嵌套语法
+    - & 引用父级选择器
+    - sass和StyLus分别用@at-root 和 / 来作为嵌套根目录
+- 变量
+    - sass: $var
+    - less: &var
+    - 注意变量的作用域
+- @import
+    - 模块化开发
+    - 当作less文件一起引用、一起编译
+    - sass中@import不会被去重、即多次引用同一个文件会导致同一个文件多次输出到编译结果中。
+- 混入
+- 继承
+    - 例
+        ```StyLus
+            mes()
+                padding: 10px;
+                border: 1px solid red;
+            .mes
+                mes()
+            .war
+                mes()
+                color: white;
+        ==>output
+            .mes{ padding: 1px; border: 1px solid red;}
+            .war{ padding: 1px; border: 1px solid red;color: white;}
+        // 但我们希望是输出 .mes, .war{ padding: 1px; border: 1px solid red;} .war{color:...}
+        ```
+    - 所以我们可以使用继承
+        ```StyLus
+            .mes
+                padding: 10px;
+                border: 1px solid red;
+            .war
+                @extend .mes
+                color: white;
+        ==>output
+           .mes, .war{ padding: 1px; border: 1px solid red;} .war{color:...}
+        ```
+        ```sass
+            .mes{
+                padding: 10px;
+                border: 1px solid red;
+            }
+            .war{
+                &:extend(.mes)
+                color: white;
+            }
+            /*
+            .war:extend(.mes){
+                color: white;
+            }
+             */
+        ```
+- 函数
+- 逻辑控制
+
+### Es6的属性
+- Class
+- 箭头函数
+- ``多行字符串
+- 默认参数 function A(a = 10, b = 20){ /* code */ }
+- promise
+- let、const块左右域
+- 模块 module
+    ```Es 5
+    // modules.js
+    module.exports = {
+        a: 100
+        // code
+    }
+    // main.js
+    let A = require("./modules.js");
+    A.a; // 100
+    ```
+    ``Es 6
+    // modules.js
+    export var a = 100;
+
+    // main.js
+    import {a} from "modules";
+    console.log(a); // 100
+    ```
+
+### mvc与mvvm
+
+### https
+
+### flex、gird布局
+
+### promise
+
+### add(2)(5) 闭包
+
+### 立即执行函数
+- 函数的两种表达
+    - 函数声明：function A(){ /* code */ } // 使用function关键字声明一个函数，再指定一个函数名，js在解析是会"函数声明提升"至当前作用域上的函数声明
+    - 函数表达式：var A = function(){ /* code */ } //使用function关键字声明一个函数，但未给函数命名，最终将匿名函数赋予一个变量，函数表达式可以在后面加括号立即调用该函数
+- 1、(function(){ /* code */ })()  2、(function (){ /* code */ }()) 可以保护该函数内部变量的作用
+- for循环里要加上绑定事件，可以用闭包保存状态
