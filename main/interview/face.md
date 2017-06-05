@@ -392,6 +392,25 @@ Object.prototype.clone = function() {
     ```
 
 ### mvc与mvvm
+- mvc(Model、View、Controller)：
+    - View视图相关，抽离得好的话，可以做很好的封装设计，使得后期更多的项目复用；
+    - Model数据相关，写得好的话，可以写函数形式复用
+    - Controller难以复用，
+        - 1、初始化构造View 和 Model
+        - 2、监听Model的事件，将Model的数据转发至View
+        - 3、监听View的事件，将View的事件处理并转发到Model
+        - 除上两点外，还有一些逻辑也写在Controller层，这样就导致了Controller层代码难以复用且比较臃肿；解决方案，将Controller层再细化例如分为逻辑、数据(Model)相关、视图(View)相关、网络请求(有可以细分为跨域、可缓存的、公共的等等~)；
+- mvvm
+    - 缺点
+        - 数据绑定使得Bug很难被调试，看到页面异常了，可能是View有bug也可能是Model
+        - 对于过大的项目，数据绑定需要花费更多的内存
+    - 优点
+        - 低耦合：视图可以独立于Model变化和修改，一个vm可以绑定到不同的view下
+        - 可复用性：组件复用性
+        - 独立开发：专注于数据和业务逻辑的开发
+        - 可测试
+
+### ng、vue、react区别
 
 ### https
 
