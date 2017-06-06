@@ -412,9 +412,15 @@ Object.prototype.clone = function() {
 
 ### ng、vue、react区别
 
-### https
+### https 与 http
+- http超文本传输协议，https经过加密的~
+    - 机密：https在传输过程中，因为经过加密传输，所以被人抓包拿到的是乱码，需要页面上的秘钥证书验证
+    - 完整：保证内容中途不会被黑客修改
+    - DNS劫持
+- http使用的是80端口的协定(纯文本模式)、https走的是443端口的协定(可通行二进制元模式)
 
 ### flex、gird布局
+- [链接](../learn/example/flexOrgrid.html)
 
 ### promise
 

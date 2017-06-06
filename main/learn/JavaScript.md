@@ -395,6 +395,10 @@ function reversal(str){
 	}
 	```
 
+## ssr服务端渲染
+- [x] 从spa到ssr
+
+
 ## 好文链接
 - [x] [前端模块化开发的价值](https://github.com/seajs/seajs/issues/547)
 - [x] [前端模块化开发那点历史](https://github.com/seajs/seajs/issues/588)
