@@ -411,6 +411,21 @@ Object.prototype.clone = function() {
         - 可测试
 
 ### ng、vue、react区别
+- vue - react
+    - 同
+        - 都是用Virtual Dom
+        - 提供了响应式和组件化的视图组件
+    - 异
+        - react拥有更丰富的生态系统
+        - react使用JSX、vue使用template(render也支持JSX)
+        - react要先学习JSX和ES2015
+- vue - ng
+    - ng1 watch多的时候会越来越慢，因为所以watcher都需要重新计算，并且某些watch触发另一个更新，脏检查循环可能要运行多次
+        - [脏检查](https://etianqq.gitbooks.io/angularjs/content/angularjs_part2_dirty_check.html)
+        - ng将一堆双向绑定转换成一堆watch表达式，然后递归检查这些watch的结果是否改变；直到model值不再改变，也就不会再有watch函数被触发
+    - vue则使用依赖追踪的观察系统变化并且异步队列更新，所有数据变化都独立触发，除非有明确依赖关系
+    - ng2还需要学习TypeScript
+
 
 ### https 与 http
 - http超文本传输协议，https经过加密的~
