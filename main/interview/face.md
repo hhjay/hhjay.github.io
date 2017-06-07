@@ -425,7 +425,9 @@ Object.prototype.clone = function() {
         - ng将一堆双向绑定转换成一堆watch表达式，然后递归检查这些watch的结果是否改变；直到model值不再改变，也就不会再有watch函数被触发
     - vue则使用依赖追踪的观察系统变化并且异步队列更新，所有数据变化都独立触发，除非有明确依赖关系
     - ng2还需要学习TypeScript
-
+- [参考1](https://www.zhihu.com/question/39943474)
+- [参考2](https://github.com/hhjay/blog-5)
+- [参考3](https://cn.vuejs.org/v2/guide/comparison.html)
 
 ### https 与 http
 - http超文本传输协议，https经过加密的~
