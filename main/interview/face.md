@@ -441,7 +441,19 @@ Object.prototype.clone = function() {
 
 ### promise
 
-### add(2)(5) 闭包
+### add(2)(5)
+- 闭包
+    - code
+        ```js
+        function add(x) {
+            var sum = x;
+            var tmp = function(y){
+                return sum + y
+            }
+        }
+        ```
+- arg变量
+- 函数curry化
 
 ### 立即执行函数
 - 函数的两种表达
