@@ -402,6 +402,10 @@ function reversal(str){
 ## 使用jquery的 contains 来判断当前节点是否是点击到的节点
 - [x] [司徒正美](http://www.cnblogs.com/rubylouvre/archive/2009/10/14/1583523.html)
 
+## 正则里使用变量
+- [x] ```js
+	  let par = "test", reg = new RegExp(par, "g"); test.replace(reg, rep);
+	  ```
 
 ## 好文链接
 - [x] [前端模块化开发的价值](https://github.com/seajs/seajs/issues/547)
