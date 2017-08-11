@@ -106,7 +106,7 @@ B页面：
 - [x] 一开始我有点懵了，我以为是object对象那些
 - [x] String(),Number(),Boolen(),Object(),Array(),function(),Math(),RegExp(),Date()
 - [x] 事件监听，捕获/冒泡，冒泡阻止，事件委托
-- [x] 常去的技术博客(我竟然想到的是--真阿当)
+- [x] 常去的技术博客(奇舞周刊、腾讯fe、百度fe、淘宝ued)
 - [x] 一分钟自我介绍(感觉都会来这套，然而我并不知道应该说什么)
 ```javascript
 function test(){
@@ -161,7 +161,6 @@ Object.prototype.clone = function() {
 - [x] box-sizing：content-box(默认,w3c标准) || border-box(ie标准) || inherit
 
 ### git怎么返回上一个提交的版本
-
 - [x] git reset --hard HEAD^ //返回上个版本
 - [x] git reset --hard 3228164 // 返回这个版本
 - [x] git reset HEAD readme.txt //撤销暂存区readme.txt 将其退回工作区
@@ -213,8 +212,6 @@ Object.prototype.clone = function() {
 - [x] 所以是先加载dom树，然后再加载图片那些。
 - [x] 面试4399感觉被坑了，一直说http的请求顺序，当时一说按照html的dom顺序来他就说我们现在说的是http的顺序。( http://www.cnblogs.com/dkarthas/archive/2010/07/04/1770989.html  );按照dom顺序背景图片最后加载。
 
-
-
 ### js垃圾回收机制 & 闭包之后怎么回收
 - [x] https://segmentfault.com/a/1190000002778015
 - [x] 闭包： 闭包是有权访问另一作用域中变量的函数
@@ -226,7 +223,6 @@ Object.prototype.clone = function() {
     var say = sayName("king");//该函数就可以访问另一作用域的变量
 - [x] sayName执行完毕之后，其执行环境的作用域会被销毁，但它的活动变量会留在内存中，直到匿名函数销毁。
 - [x] 内存泄漏解决办法：a、使用匿名函数  b、使用闭包之后将值置null  c、解除循环使用
-
 
 ### js对象怎么继承
 - [x] http://www.zcfy.cc/article/513
@@ -461,3 +457,36 @@ Object.prototype.clone = function() {
     - 函数表达式：var A = function(){ /* code */ } //使用function关键字声明一个函数，但未给函数命名，最终将匿名函数赋予一个变量，函数表达式可以在后面加括号立即调用该函数
 - 1、(function(){ /* code */ })()  2、(function (){ /* code */ }()) 可以保护该函数内部变量的作用
 - for循环里要加上绑定事件，可以用闭包保存状态
+
+## 喜马拉雅fm
+
+
+## 饿了么
+- vue
+    - vue组件间通信
+    - vue2.3+的sync允许在子组件修改props的值
+        - [https://cn.vuejs.org/v2/guide/components.html#sync-修饰符](sync)
+    - webpack-plugins 插件
+        - 在webpack的prototype上添加的plug
+    - webpack-loader
+    - vuex
+    - vue的响应式原理
+- 数组去重
+- 浏览器
+    - cors jsonp 简单请求 非简单请求
+        - [https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS](mdn)
+        - [http://www.ruanyifeng.com/blog/2016/04/cors.html](ruanyifeng)
+    - 缓存
+        - url加随机数
+- promise async/await
+- css
+    - 盒模型
+    - flex
+    - less的继承、变量
+
+- git
+    - fetch和pull区别
+    - merge和b
+- Es的新属性
+    - ...
+    - 
