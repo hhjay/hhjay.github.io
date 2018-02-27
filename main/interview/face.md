@@ -20,49 +20,51 @@ main();
 ```
 ### js跨域的方法
 - [x] 基于iframe-location.hash(document.domain)的实现/修改document.domain来跨子域
-```python
-A页面：
-    <iframe src="b.com/b.html" id="a"></iframe>
-    <script type="text/javascript">
-        var a = document.getElementById("a").onload = function(){
-            a.b();
-        }
-    </script>
-B页面：
-    <script type="javascript">
-        document.domain = "a.com";
-        function b(){}
-    </script>
-```
+    ```python
+    A页面：
+        <iframe src="b.com/b.html" id="a"></iframe>
+        <script type="text/javascript">
+            var a = document.getElementById("a").onload = function(){
+                a.b();
+            }
+        </script>
+    B页面：
+        <script type="javascript">
+            document.domain = "a.com";
+            function b(){}
+        </script>
+    ```
 - [x] window.name
 - [x] xhr2
 - [x] 使用HTML5的window.postMessage方法跨域// 例子见该文件统一目录的a.html && b.html
 - [x] jsonp,就是把跨域的js当成一个节点使用，并返回结果(数据)。
-```python
-// 服务器端：
-    <?php 
-    function() {
-        $str = "callback({
-            some json || some xml || array
-        })";
-        echo $str;// 目前只用过json
-    }
-    ?>
-// 请求端：
-    <script type="text/javascript">
-    $.ajax({
-        url:"this url",
-        dataType:'jsonp',
-        jsonp:"jsoncallback",
-        success: function(data){
-            console.log(data);
-        },
-        error: function(err) {
-            console.log(err);
+    ```python
+    // 服务器端：
+        <?php 
+        function() {
+            $str = "callback({
+                some json || some xml || array
+            })";
+            echo $str;// 目前只用过json
         }
-    })
-    </script>
-```
+        ?>
+    // 请求端：
+        <script type="text/javascript">
+        $.ajax({
+            url:"this url",
+            dataType:'jsonp',
+            jsonp:"jsoncallback",
+            success: function(data){
+                console.log(data);
+            },
+            error: function(err) {
+                console.log(err);
+            }
+        })
+        </script>
+    ```
+- [x] node中间件
+- [x] nginx代理
 
 ### attachEvent和addEventListen的区别
 - [x] attachEvent是ie支持的属性，addEventListen是非ie支持的属性(联系到事件冒泡和事件捕获)
@@ -76,13 +78,13 @@ B页面：
 
 ### 事件冒泡和事件捕获
 ```python
-<html>
-<body>
-    <div>
-        <p></p>
-    </div>
-</body>
-</html>
+    <html>
+    <body>
+        <div>
+            <p></p>
+        </div>
+    </body>
+    </html>
 ```
 - [x] 冒泡：子级元素先触发，父级元素后触发 p->div->body
 - [x] 捕获：父级元素先触发，子级元素后触发 body->div->p
@@ -109,16 +111,15 @@ B页面：
 - [x] 常去的技术博客(奇舞周刊、腾讯fe、百度fe、淘宝ued)
 - [x] 一分钟自我介绍(感觉都会来这套，然而我并不知道应该说什么)
 ```javascript
-function test(){
-    alert("aaaaaa");
-}
-function test(){
-    alert("bbbbbb");
-}
-test();//会返回什么？
-// 因为加载的后面的js程序会覆盖前面的函数，而不是依次执行
-// 有点类似onclick的那个事情
-
+    function test(){
+        alert("aaaaaa");
+    }
+    function test(){
+        alert("bbbbbb");
+    }
+    test();//会返回什么？
+    // 因为加载的后面的js程序会覆盖前面的函数，而不是依次执行
+    // 有点类似onclick的那个事情
 ```
 
 ### 深拷贝、浅拷贝
@@ -201,6 +202,11 @@ Object.prototype.clone = function() {
 
 ### 网站优化
 - [x] http://www.chinaz.com/web/2014/0527/353092.shtml
+- [x] 少用iframe
+    - [1] 阻塞父文档onload事件
+    - [2] 搜索引擎无法解读，不利于seo
+    - [3] iframe与主页面共享连接池，影响页面的并行加载
+- [x] 使用css3代替js动画，避免重绘重排以及回流 
 
 ### 网站加载顺序
 - [x] http://m.studyofnet.com/news/349.html
@@ -208,7 +214,7 @@ Object.prototype.clone = function() {
     (渲染页面)加载body的dom结构 ->发现img就向服务器发送请求图片(图片影响了后面段落的布局)
                                 ->发现script标签，请求相应的js并运行 ->有些会影响原先dom结构的重新渲染这段dom，执行时会阻塞页面后续的内容(包括页面的渲染和其他资源的下载)，那么如果是多个js文件被引入那么这些文件会被串行的加载并执行。
                                 ->终于到了结束的</html>
-- [x] 当前页面两个相同的id会怎么渲染: 因为页面是css先加载从上到下渲染，然而css并不知道是两个id 所以都会同样的css样式；引申到如果相同的事件都绑定了当前id呢？那么当然是第一个id得到效果，因为查找是从上到下的。
+- [x] 当前页面两个相同的id会怎么: 因为页面是css先加载从上到下渲染，然而css并不知道是两个id 所以都会同样的css样式；引申到如果相同的事件都绑定了当前id呢？那么当然是第一个id得到效果，因为查找是从上到下的。
 - [x] 所以是先加载dom树，然后再加载图片那些。
 - [x] 面试4399感觉被坑了，一直说http的请求顺序，当时一说按照html的dom顺序来他就说我们现在说的是http的顺序。( http://www.cnblogs.com/dkarthas/archive/2010/07/04/1770989.html  );按照dom顺序背景图片最后加载。
 
