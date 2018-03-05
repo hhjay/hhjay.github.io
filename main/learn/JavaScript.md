@@ -8,6 +8,8 @@
 	- [1] 首先全局安装babel、webpack、webpack-dev-server
 	- [2] npm install babel/webpack/webpack-dev-server -g
 - [ ] 直接引入js
+- [ ] webpack + react
+	- [1] 
 
 ## push和unshift
 - [x] 由例子可知，push效率高于unshift，据说测速的push有43.225ms而unshift则是3935.152ms左右，效率远大于push，数据小的时候可能体会不出来，数据比较大的时候就会发现unshift有明显的卡顿
@@ -90,6 +92,9 @@
 	}
 	// 在将对应的加减放在二维数组里
 	```
+
+## 一维数组去重
+- [x] [例子](./example/js-pro/array-unique.html)
 
 ## [1, 2] + [3, 4] 为什么不等于 [1, 2, 3, 4]
 - [x] 因为[1, 2] + [3, 4]会转为"1,2" + "3,4" = "1,23,4";数组转为字符串
@@ -335,5 +340,79 @@
 ## 下拉无限更新
 - [x] [例子](./example/js-pro/unlimit-scroll.html)
 
+## 为什么使用事件委托
+- [x] 改善性能：元素绑定监听都会占用内存，假设页面有n行表格，每一行都占用，那占用的内存是不是会很多？
+- [x] 使用事件委托可以减少监听数量，html会不会好看一点，dom也会更易于维护。
+
+## echarts中series值为空('-')的时候，不显示灰色框
+- [x] 将series中的calculable设置为false即可
+
 ## 字符串拼接和数组push效率
 - [x] [linl](https://www.zhihu.com/question/19747496)
+
+## switch/case 和 if/else 效率
+- [x] 判断条件比较少的时候，感觉不到差距
+- [x] 判断条件多的时候，ifelse每次都要判断，故ifelse速度取决于判断到达最后一个条件的时间，所以if/else的效率为O(n)
+- [x] switch使用了二叉树
+	- [1] [二叉查找树](https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%85%83%E6%90%9C%E5%B0%8B%E6%A8%B9)，一个无序序列可以通过构造一颗二叉查找树变成一个有序序列，构造树的过程即为对无序序列查找的过程；
+	- [2] switch/case会被分配到一个连续的查找表中，其中不连续的部分也加上了相应的条目，switch/case表的大小不取决于switch/case的多少，而取决于最大最小值的间距；
+	- [3] 那么得到结论，switch/case的效率为O(1)
+- [x] [参考](http://stackoverflow.com/questions/767821/is-else-if-faster-than-switch-case)
+
+## 字符串反转
+``` JavaScript
+function reversal(str){
+	str.split("").reverse().join("");
+}
+```
+
+## js串行执行
+- [x] 函数顺序执行 => fn1(); fn2(); fn3();
+- [x] 将函数入栈，然后依次执行 => stack.push(fn1, fn2, fn3); //优点 可以放入匿名函数等
+- [x] 有setTimeout(function(){ fn3(); });会将改函数放到最后执行，解决
+	``` JavaScript
+	function fn1(){
+		// code
+		next();
+	}
+	function fn1(){
+		setTimeout(funtion(){
+			// code
+			next();
+		}, 0);
+		next();
+	}
+	function fn1(){
+		// code
+		next();
+	}
+	var stack = []; stack.push(fn1, fn2, fn3);
+	var index = 0; //当前执行函数位置
+	function next(){
+		var fn = stack[index];
+		index++;
+		if( typeof fn === "function" ) fn();
+	}
+	```
+
+## ssr服务端渲染
+- [x] 从spa到ssr
+
+
+## 使用jquery的 contains 来判断当前节点是否是点击到的节点
+- [x] [司徒正美](http://www.cnblogs.com/rubylouvre/archive/2009/10/14/1583523.html)
+
+## 正则里使用变量
+- [x] ```js
+	  let par = "test", reg = new RegExp(par, "g"); test.replace(reg, rep);
+	  ```
+
+## 好文链接
+- [x] [前端模块化开发的价值](https://github.com/seajs/seajs/issues/547)
+- [x] [前端模块化开发那点历史](https://github.com/seajs/seajs/issues/588)
+- [x] [玉伯与dexteryy关于ozJS的讨论](https://github.com/dexteryy/OzJS/issues/10)
+- [x] [如何向开源社区提问题](https://github.com/seajs/seajs/issues/545)
+- [x] [某黑客对于提问的看法](http://www.wapm.cn/smart-questions/smart-questions-zh.html)
+- [x] [开源前端框架纵横谈](http://www.csdn.net/article/2013-04-15/2814893)
+- [x] gitbook
+	- [1] [JavaScript设计模式](https://leohxj.gitbooks.io/front-end-database/content/javascript-design-pattern/index.html)

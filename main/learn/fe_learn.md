@@ -19,6 +19,7 @@
 	|					|____NodeJs_______createServer、npm、nosql/mysql
 	|									  |__Vue/React/Angular、jquery/prototype、
 	|									  |__ [Elasticsearch与node](https://www.oschina.net/translate/search-engine-node-elasticsearch)
+	|									  |__ node操作数据、[mongoose](https://cnodejs.org/topic/504b4924e2b84515770103dd)
 	|
 	|					 
 	|					 ____后端____后台返回json、了解Java工作原理、了解sql存取数据过程
