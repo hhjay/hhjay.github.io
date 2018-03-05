@@ -35,3 +35,8 @@
 
 ## 在页面添加评注
 - [ ] [link](http://www.html-js.com/article/The-front-end-of-the-official-about-the-new-function-column-mass-just-online-commentary)
+
+## virtual Dom
+- [ ] [link](http://www.cnblogs.com/xuntu/p/6800547.html)
+- 看成一棵模拟了Dom树的javascript树，主要使用vnode实现一个无状态的组件，当组件发生更新时，触发virtual Dom的变化，然后通过与真实Dom的比对，再更新Dom，简单的认为虚拟dom是真实dom的缓存；
+- [ ] diff算法同级比较。
