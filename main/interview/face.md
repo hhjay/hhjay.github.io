@@ -496,3 +496,26 @@ Object.prototype.clone = function() {
 - Es的新属性
     - ...
     - 
+
+- 实现promise的方法
+    - 记录当前状态
+    - 多个promise串行执行
+    - 抛异常
+    - [https://www.cnblogs.com/huansky/p/6064402.html](参考)
+    - code
+    `js
+        function promise(fn) {
+            let state = 'pending', doneList = [];
+            this.then = function(resvole, reject) {
+                switch(state) {
+                    case 'pending': 
+                        doneList.push(resvole); break;
+                    case 'fulfilled':
+                        resvole(); break;
+                    case 'rejected':
+                        reject(); break;
+                }
+                return this;
+            }
+        }
+    `
