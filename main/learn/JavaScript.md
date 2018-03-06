@@ -407,6 +407,11 @@ function reversal(str){
 	  let par = "test", reg = new RegExp(par, "g"); test.replace(reg, rep);
 	  ```
 
+## 为什么要用打包、构建工具工具
+- [x] 预处理(less、sass、coffeeScript、babel)
+- [x] 资源压缩(合并压缩、模块化、一些自动化构建)
+- [x] 
+
 ## 好文链接
 - [x] [前端模块化开发的价值](https://github.com/seajs/seajs/issues/547)
 - [x] [前端模块化开发那点历史](https://github.com/seajs/seajs/issues/588)

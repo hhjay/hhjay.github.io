@@ -33,6 +33,11 @@
 	- [4] 在后面加上清除浮动元素
 - [x] [参考链接](https://www.zhihu.com/question/30938856)
 
+## px、em和rem的区别
+- [x] px确定的大小，页面缩放时无法调整大小，相对于显示屏幕分辨率而言的
+- [x] em 的值并不是固定的，会继承父级元素的字体大小，代表倍数
+- [x] rem 的值并不是固定的，始终是基于根元素 <html> 的，也代表倍数。
+
 ## display: inline-block间隙问题
 - [x] chrome-8px firefox/ie8+-4px
 - [x] 原因：inline元素之间本身存在间隙、由inline元素之间的空白引起，解决方案：去掉空白符
