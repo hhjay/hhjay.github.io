@@ -517,5 +517,11 @@ Object.prototype.clone = function() {
                 }
                 return this;
             }
+            function reject() {
+                // 失败
+            }
+            function resolve() {
+                // 成功
+            }
         }
     `
