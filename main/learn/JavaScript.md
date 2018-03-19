@@ -13,85 +13,84 @@
 
 ## push和unshift
 - [x] 由例子可知，push效率高于unshift，据说测速的push有43.225ms而unshift则是3935.152ms左右，效率远大于push，数据小的时候可能体会不出来，数据比较大的时候就会发现unshift有明显的卡顿
-``` javascript
+	``` javascript
+	<!-- push -->
+		console.time("push");
+		var arr = [];
+		for(var i = 0; i < 100000; i++){
+			arr.push(i);
+		}
+		console.log(arr);//  43.225ms
+		console.timeEnd("push");
 
-<!-- push -->
-	console.time("push");
-	var arr = [];
-	for(var i = 0; i < 100000; i++){
-		arr.push(i);
-	}
-	console.log(arr);//  43.225ms
-	console.timeEnd("push");
+	<!-- unshift -->
+		console.time("unshift");
+		var arr = [];
+		for(var i = 0; i < 100000; i++){
+			arr.unshift(i);
+		}
+		console.log(arr);//  3935.152ms
+		console.timeEnd("unshift");
 
-<!-- unshift -->
-	console.time("unshift");
-	var arr = [];
-	for(var i = 0; i < 100000; i++){
-		arr.unshift(i);
-	}
-	console.log(arr);//  3935.152ms
-	console.timeEnd("unshift");
+	<!-- push + reverse -->
+		console.time("push");
+		var arr = [];
+		for(var i = 0; i < 100000; i++){
+			arr.push(i);
+		};
+		arr.reverse();
+		console.log(arr);//  69.286ms
+		console.timeEnd("push");
+	```
 
-<!-- push + reverse -->
-	console.time("push");
-	var arr = [];
-	for(var i = 0; i < 100000; i++){
-		arr.push(i);
-	};
-	arr.reverse();
-	console.log(arr);//  69.286ms
-	console.timeEnd("push");
-
-```
 - [x] 所以使用push，如果真要从排头进入，那么可以先push之后再reverse即可，通过时间的比较，也比unshift的效率高了56.8倍；
 
 ## 数组去重 来自echarts的热力图中区域的比较
 - [x] 将x、y轴相等时z应相加
 ``` javascript
-[[0, 0, 1], [0, 0, 2]]
-=>
-[[0, 0, 3]]
+	[[0, 0, 1], [0, 0, 2]]
+	=>
+	[[0, 0, 3]]
 ```
 - [x] 直接上代码
 	- [1] method1
-	``` javascript
-	// 有个问题 就是没有排好序，所以会有问题
-	var len = arr.length;
-	var newArr = [];
-	for(var i = 0; i < len; i++){
-		var temp1 = arr[i];
-		var sum = temp1[2];
-		for(var j = i + 1; j < len; j++){
-			var temp2 = arr[j];
-			if(temp1[0] == temp2[0] && temp1[1] == temp2[1]){
-				sum = sum + temp2[2];
-			}else{
-				i = j;
+		``` javascript
+		// 有个问题 就是没有排好序，所以会有问题
+		var len = arr.length;
+		var newArr = [];
+		for(var i = 0; i < len; i++){
+			var temp1 = arr[i];
+			var sum = temp1[2];
+			for(var j = i + 1; j < len; j++){
+				var temp2 = arr[j];
+				if(temp1[0] == temp2[0] && temp1[1] == temp2[1]){
+					sum = sum + temp2[2];
+				}else{
+					i = j;
+				}
+			}
+			newArr.push([temp1[0], temp1[1], sum]);
+		}
+		```
+	- [2] method2
+		``` javascript
+		var x = [], y = [], res = [];
+		var xFactor = xxx;
+		for(var i = 0; i < xMax / xFactor; i++){
+			var t = i * xFactor + "~" + (i+1) * xFactor;
+			x.push(t);
+			res.push([]);
+		}
+		for(var j = 0; j < yMax; j++){
+			y.push(j);
+		}
+		for(var k = 0; k < x.length; k++){
+			for(var z = 0; z < y.length; z++){
+				res[k].push(0);
 			}
 		}
-		newArr.push([temp1[0], temp1[1], sum]);
-	}
-	```
-	- [2] method2
-	``` javascript
-	var x = [], y = [], res = [];
-	var xFactor = xxx;
-	for(var i = 0; i < xMax / xFactor; i++){
-		var t = i * xFactor + "~" + (i+1) * xFactor;
-		x.push(t);
-		res.push([]);
-	}
-	for(var j = 0; j < yMax; j++){
-		y.push(j);
-	}
-	for(var k = 0; k < x.length; k++){
-		for(var z = 0; z < y.length; z++){
-			res[k].push(0);
-		}
-	}
-	// 在将对应的加减放在二维数组里
-	```
+		// 在将对应的加减放在二维数组里
+		```
 
 ## 一维数组去重
 - [x] [例子](./example/js-pro/array-unique.html)
@@ -131,6 +130,7 @@
 	- [2] 一旦改变状态，就不会变
 - [x] promise的目的是为了让回调更优雅，例如ajax中的多级回调，它可以将异步操作以同步操作的流程表达出来，更像链式回调，(例promise.html)
 - [ ] 问：promise中断是否可以使请求中断？
+- [x] [手写代码实现](https://juejin.im/post/5aa7868b6fb9a028dd4de672?utm_source=gold_browser_extension)、[重现](./promise-real.html)
 
 ## jsonp连接会有断断续续
 - [ ]
