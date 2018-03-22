@@ -1,7 +1,10 @@
-# BFC
+---
+title: bfc
+date: 2018-03-21 17:41:37
+tags:
+---
 
--------
-BFC(Block Formatting Context)块级上下文
+## BFC(Block Formatting Context)块级上下文
 
 ## 概念
 - 是页面中的一块渲染区域，并且有一套渲染规则，决定了其子元素将如何定位，以及和其他元素的关系和相互关系。
@@ -36,7 +39,6 @@ BFC(Block Formatting Context)块级上下文
         <div class="a"></div>
         <div class="b"></div>
     ```
-    
     - a、b浮动，父元素高度塌陷；
     - 解决办法1：给父级元素添加overflow: hidden;触发BFC
     - 解决办法2：给父级元素after添加clear:both;display:table;
@@ -59,7 +61,6 @@ BFC(Block Formatting Context)块级上下文
             <div class="a"></div>
         </div>
     ```
-
     - margin重叠，会发现margin只有30px，少了20px；解决办法: 给b添加一个父级元素，并使该元素触发BFC，这样这两个div就不属于同一个BFC也就不会发生重叠了
     ```html
         <style>
