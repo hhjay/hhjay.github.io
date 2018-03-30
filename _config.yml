@@ -75,9 +75,17 @@ pagination_dir: page
 # git clone git@github.com:sergodeeva/cactus-white.git
 theme: cactus-white # landscape
 
+nav:
+  Home: /
+  # About: /about/
+  # Writing: /posts/
+  Projects: https://github.com/hhjay/hhjay.github.io.git
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:hhjay/hhjay.github.io.git # https://github.com/hhjay/hhjay.github.io.git # http://hhjay.github.io/main/blog/
+  repo: https://github.com/hhjay/hhjay.github.io.git # ssh://git@github.com:hhjay/hhjay.github.io.git
   branch: master
+  name: hhjay
+  email: sunhhjay@gmail.com
