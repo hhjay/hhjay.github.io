@@ -12,7 +12,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://hhjay.github.io/main/blog/
+url: http://hhjay.github.io/
 root: /
 permalink: :year/:title/ # :year/:month/:day/:title/
 permalink_defaults:
@@ -72,12 +72,12 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
+# git clone git@github.com:sergodeeva/cactus-white.git
 theme: cactus-white # landscape
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/hhjay/hhjay.github.io.git # http://hhjay.github.io/main/blog/
+  repo: git@github.com:hhjay/hhjay.github.io.git # https://github.com/hhjay/hhjay.github.io.git # http://hhjay.github.io/main/blog/
   branch: master
-  root: /main/blog/
