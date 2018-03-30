@@ -6,7 +6,7 @@
 - [ ] 栅格化布局是什么；流式布局、栅格布局、固定布局的区别
 - [ ] 链表和数组区别
 - [ ] 排序算法
-- [ ] rem的适配方案，与em区别
+- [x] rem的适配方案，与em区别
 - [ ] 原型链及继承
 - [ ] es6的新属性，=> ... let和const的区别
 - [x] [localStorage、session和cookie的区别，session存在内存？](./session-cookie.md)
@@ -20,7 +20,7 @@
 - [ ] position的三个值？
 - [ ] flex的布局，具体
 - [ ] CSRF、XSS怎么防御
-- [ ] null、undefined、NaN区别
+- [x] null、undefined、NaN区别
 - [ ] vue、react的区别，vue1、vue2的区别
 - [ ] undefined、null、NaN的区别
 - [ ] ie的margin双边距的问题及解决方案

@@ -80,3 +80,4 @@ deploy:
   type: git
   repo: https://github.com/hhjay/hhjay.github.io.git # http://hhjay.github.io/main/blog/
   branch: master
+  root: /main/blog/
