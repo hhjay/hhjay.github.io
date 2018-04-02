@@ -75,12 +75,6 @@ pagination_dir: page
 # git clone git@github.com:sergodeeva/cactus-white.git
 theme: cactus-white # landscape
 
-nav:
-  Home: /
-  # About: /about/
-  # Writing: /posts/
-  Projects: https://github.com/hhjay/hhjay.github.io.git
-
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
