@@ -79,7 +79,8 @@ theme: cactus-white # landscape
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/hhjay/hhjay.github.io.git # ssh://git@github.com:hhjay/hhjay.github.io.git
+  # repo: https://github.com/hhjay/hhjay.github.io.git
+  repo: git@github.com:hhjay/hhjay.github.io.git
   branch: master
   name: hhjay
   email: sunhhjay@gmail.com
