@@ -57,11 +57,10 @@ tags: http
             document.body.appendChild(h);
         </script>
     ```
-    - 
 - 防御
     - “所有的输入都是有害的”：对输入数据进行过滤
         - 对数据进行html encode处理
-        - 对一些特殊符号进行转义，例如<script>、<iframe>、&lt < 、&gt >、
+        - 对一些特殊符号进行转义，例如 < script>、< iframe>、&lt < 、&gt >
         - 过滤js事件的标签，例如onclick、onfoucus
     - 将重要的cookie标记为http only，这样页面上js的document.cookie语气就不能获取到cookie
     - 对数据
@@ -84,10 +83,25 @@ tags: http
     - 加大服务量
 
 ## sql注入
+- 通过把sql命令插入到web表单提交、输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的sql命令
+- 注入方法
+    - 猜测表名、列名
+        ```Sql
+            And (Select (col列名) from tb_sql表名) ... // 不知道
+        ```
+    - 后台身份验证绕过漏洞
+    ```Sql
+        Select * from t_sql Where user=''or 'a'='a' And passwd=''or 'a'='a'
+    ```
+- 防御
+    - 检查输入：确定输入字符类型、加密处理
+    - 数据库安全：修改密码什么的，对系统注意分配权限
 
 ## cc攻击
+- Challenge Collapsar（挑战黑洞），利用不断对网站发送请求致使形成拒绝服务的目的
 
 ## 参考链接
 - [cors.csrf](https://yq.aliyun.com/articles/69313)
 - [xss](https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_label3)
 - [ddos](https://baike.baidu.com/item/%E5%88%86%E5%B8%83%E5%BC%8F%E6%8B%92%E7%BB%9D%E6%9C%8D%E5%8A%A1%E6%94%BB%E5%87%BB)
+- [sql注入](https://baike.baidu.com/item/sql%E6%B3%A8%E5%85%A5)
