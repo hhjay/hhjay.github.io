@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>无限滚动-加载页面</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		.list{
+			width: 80%;height: 300px;
+			background: #fefefe; border: 1px solid #ddd;
+			margin: 20px auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="list">
+			<ul>
+				<li>list1</li>
+				<li>list1</li>
+				<li>list1</li>
+				<li>list1</li>
+				<li>list1</li>
+				<li>list1</li>
+			</ul>
+		</div>
+		<div class="list">
+			<ul>
+				<li>list2</li>
+				<li>list2</li>
+				<li>list2</li>
+				<li>list2</li>
+				<li>list2</li>
+				<li>list2</li>
+			</ul>
+		</div>
+	</div>
+<script src="http://cdn.bootcss.com/jquery/1.11.0/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var root = $(document),
+			befor = root.scrollTop();
+		
+		var timer = null;
+		root.scroll(function(e) {
+			var after = root.scrollTop(), winH = $(window).height(), docH = root.height();
+			if ( timer != null ) clearTimeout(timer);
+
+			timer = setTimeout(function(){
+				if ( after + winH > docH - 100 ) {
+					$.ajax({
+						url: './test.php',
+						type: 'GET',
+					})
+					.done(function(res) {
+						var h = document.createDocumentFragment();
+						var l = document.createElement("div");
+						l.className = "list";
+						var u = document.createElement("ul");
+						for(var i = 0; i < 5; i++){
+							var t = document.createElement("li");
+							var x = document.createTextNode("test"+ i);
+							t.appendChild(x);
+							u.appendChild(t);
+						}
+						l.appendChild(u);
+						h.appendChild(l);
+						$(".main")[0].appendChild(h);
+					})
+					.fail(function(err) {
+						console.error(err);
+					})
+				}
+			}, 800);
+		});
+	});
+</script>
+</body>
+</html>
