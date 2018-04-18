@@ -10,7 +10,8 @@
 - [ ] 原型链及继承
 - [ ] es6的新属性，=> ... let和const的区别
 - [x] [localStorage、session和cookie的区别，session存在内存？](./session-cookie.md)
-- [ ] 页面渲染流程，怎么走304、怎么走200
+- [x] [http请求流程，怎么走304、怎么走200](http-request-status)
+- [ ] [页面渲染流程]()
 - [ ] http协议 https://www.v2ex.com/t/440366#reply32
 - [ ] 页面性能优化
 - [ ] 怎么适配移动端，@media、ua判断走不同css
@@ -28,3 +29,6 @@
 - [ ] call、apply、bind区别
 - [ ] 简单请求、非简单请求就是这样子咯
 - [ ] 要不要写一个前端通用组件，就算是直接看elementUi
+    - [ ] 栅格化
+    - [ ] loading
+    - [ ] ...
