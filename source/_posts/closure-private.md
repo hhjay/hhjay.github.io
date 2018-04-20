@@ -54,7 +54,36 @@ tags: js
         o.foo() = 333;
         console.log(o.foo()) // 可以读取b的值，但是不能修改，达到了私有访问的目的
     ```
-   
+- 常见
+    - 例子1
+    ```JavaScript
+        var a = [];
+        for(var i = 0; i < 3; i++) {
+            a[i] = function() {
+                console.log(i);
+            }
+        }
+        a[0](); // 3
+        a[1](); // 3
+        a[2](); // 3 在a[i] = ..时定义函数，未执行，最后在这里执行产生环境变量，故a[n]()指向的是i最后的值
+    ```
+    - 例子2
+    ```JavaScript
+        function A() {
+            var i = 1;
+            return function () {
+                i++
+                console.log(i);
+            }
+        }
+        var a = A(); // a生成环境变量
+        a(); // 2 未释放变量，一直加下去
+        a(); // 3
+        var b = A();
+        b(); // 2
+        b(); // 3
+        a(); // 4
+    ```
 
 ## 参考链接
 - [wiki]<https://zh.wikipedia.org/wiki/%E9%97%AD%E5%8C%85_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)>
