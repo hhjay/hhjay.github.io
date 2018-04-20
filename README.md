@@ -17,7 +17,8 @@
 - [ ] 怎么适配移动端，@media、ua判断走不同css
 - [x] [bfc](./bfc.md)
 - [ ] 在改变 url 时页面不刷新的办法
-- [ ] 闭包、构造函数
+- [ ] 闭包、构造函数、闭包怎么隐藏数据
+- [ ] 尝试Ts + angular实现站点
 - [ ] position的三个值？
 - [ ] flex的布局，具体
 - [ ] CSRF、XSS怎么防御
@@ -27,8 +28,9 @@
 - [ ] ie的margin双边距的问题及解决方案
 - [ ] 标准模型、怪异模型区别，deoctype后面那些是什么
 - [ ] call、apply、bind区别
+- [ ] for in可以break，forEach不支持
 - [ ] 简单请求、非简单请求就是这样子咯
-- [ ] 要不要写一个前端通用组件，就算是直接看elementUi
+- [ ] 要不要写一个前端通用组件，就算是直接看elementUis
     - [ ] 栅格化
     - [ ] loading
     - [ ] ...
