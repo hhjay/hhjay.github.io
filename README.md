@@ -29,6 +29,7 @@
 - [ ] 标准模型、怪异模型区别，deoctype后面那些是什么
 - [ ] call、apply、bind区别
 - [ ] for in可以break，forEach不支持
+- [ ] vue源码，双向绑定原理、虚拟dom
 - [ ] 简单请求、非简单请求就是这样子咯
 - [ ] 要不要写一个前端通用组件，就算是直接看elementUis
     - [ ] 栅格化
