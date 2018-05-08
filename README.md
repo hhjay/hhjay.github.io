@@ -8,7 +8,7 @@
 - [ ] 排序算法(https://juejin.im/post/5ab9ae9cf265da23830ae617)
 - [x] rem的适配方案，与em区别
 - [ ] 原型链及继承
-- [ ] es6的新属性，=> ... let和const的区别
+- [x] [es6/7的新属性](./es-6-7.md)
 - [x] [localStorage、session和cookie的区别，session存在内存？](./session-cookie.md)
 - [x] [http请求流程，怎么走304、怎么走200](http-request-status)
 - [ ] [页面渲染流程]()
@@ -30,6 +30,7 @@
 - [ ] call、apply、bind区别
 - [ ] for in可以break，forEach不支持
 - [ ] vue源码，双向绑定原理、虚拟dom
+    - [ ] [双向绑定中definePrototype和proxy的区别](https://juejin.im/post/5acd0c8a6fb9a028da7cdfaf?utm_source=gold_browser_extension)
 - [ ] 简单请求、非简单请求就是这样子咯
 - [ ] 小程序开发
     - [ ] 腾讯云
