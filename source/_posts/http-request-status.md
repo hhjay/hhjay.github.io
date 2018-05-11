@@ -23,6 +23,8 @@ tags: http
 ## 304怎么来的
 - 客户端在请求一个文件的时候，发现缓存的文件有Last Modified，则在请求中会包含If-Modified-Since，这个时间就是缓存文件的Last-Modified。因此，若请求中包含If-Modified-Since则说明有缓存在客户端，服务器只需要判断这个时间和当前请求文件的修改时间就可以确定是返回200还是304
 - 对于静态文件，服务端会自动比较Last-Modified和If-Last-Modified
+- 200 OK (FROM CACHE) 与 304 NOT MODIFIED
+    - 200 OK (from cache)  是浏览器没有跟服务器确认，直接用了浏览器缓存；而 304 Not Modified 是浏览器和服务器多确认了一次缓存有效性，再用的缓存。
 
 ## 状态码
 - 1xx 
@@ -60,3 +62,4 @@ tags: http
 - [简书.请求流程](https://www.jianshu.com/p/fbe0e9fa45a6)
 - [博客园.紫云飞](http://www.cnblogs.com/ziyunfei/archive/2012/11/16/2772729.htm)
 - [维基百科.http状态码](https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81)
+- [200和304](https://div.io/topic/854)
