@@ -26,3 +26,4 @@ tags: python
 
 ## 参考链接
 - [csdn.乱码解决](https://blog.csdn.net/jim7424994/article/details/22675759)
+- [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.zh.html)
