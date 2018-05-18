@@ -6,7 +6,7 @@
 - [x] [栅格化布局是什么；流式布局、栅格布局、固定布局的区别](./layout-grid-flow-fixed.md)
 - [ ] 链表和数组区别
 - [ ] 排序算法(https://juejin.im/post/5ab9ae9cf265da23830ae617)
-- [x] rem的适配方案，与em区别
+- [x] rem的适配方案，与em区别，px与pt区别
 - [ ] 原型链及继承
 - [x] [es6/7的新属性](./es-6-7.md)
 - [x] [localStorage、session和cookie的区别，session存在内存？](./session-cookie.md)
