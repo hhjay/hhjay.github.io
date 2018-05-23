@@ -163,7 +163,7 @@
 
 ## 拼音匹配
 - [x] 先把汉字变拼音，然后匹配
-- [x] [链接](http://pinyin.hotoo.me/)
+- [x] [链接](https://hotoo.github.io/pinyin/)
 - [x] [例子](./example/select.html)
 
 ## dom操作效率
