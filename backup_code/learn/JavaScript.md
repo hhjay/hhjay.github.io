@@ -163,7 +163,9 @@
 
 ## 拼音匹配
 - [x] 先把汉字变拼音，然后匹配
-- [x] vue + webpack引入pinyin模块时打包会出错，[链接](https://github.com/hotoo/pinyin/issues/129)
+- [x] vue + webpack引入pinyin模块时打包会出错，
+	- [链接](https://github.com/hotoo/pinyin/issues/129)
+	- 修改引入后，打包没报错，但是运行会报错，原因是用的es6，没有mix把es2015中require和export的问题[链接](https://github.com/webpack/webpack/issues/4039#issuecomment-283501082)
 - [x] [链接](https://hotoo.github.io/pinyin/)
 - [x] [例子](./example/select.html)
 
