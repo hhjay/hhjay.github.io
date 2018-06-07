@@ -26,6 +26,11 @@ tags: http
 - 200 OK (FROM CACHE) 与 304 NOT MODIFIED
     - 200 OK (from cache)  是浏览器没有跟服务器确认，直接用了浏览器缓存；而 304 Not Modified 是浏览器和服务器多确认了一次缓存有效性，再用的缓存。
 
+## 常规操作
+- F5 刷新，浏览器会设置max-age=0，跳过强缓存判断，会进行协商缓存判断
+- Ctrl + F5, 跳过协商缓存与强缓存，直接从服务器拉取资源
+- 地址栏访问，链接跳转是正常用户行为，将会触发浏览器缓存机制
+
 ## 状态码
 - 1xx 
     - 临时响应：代表请求已被接受，需要继续处理
@@ -63,3 +68,4 @@ tags: http
 - [博客园.紫云飞](http://www.cnblogs.com/ziyunfei/archive/2012/11/16/2772729.htm)
 - [维基百科.http状态码](https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81)
 - [200和304](https://div.io/topic/854)
+- [强缓存和协商缓存图](https://user-gold-cdn.xitu.io/2018/6/7/163d60a0d0e7bf24?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
