@@ -68,4 +68,5 @@ tags: http
 - [博客园.紫云飞](http://www.cnblogs.com/ziyunfei/archive/2012/11/16/2772729.htm)
 - [维基百科.http状态码](https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81)
 - [200和304](https://div.io/topic/854)
+- [juejin.预加载和强缓存](https://juejin.im/post/5b17e7f5e51d4506af2e8e42)
 - [强缓存和协商缓存图](https://user-gold-cdn.xitu.io/2018/6/7/163d60a0d0e7bf24?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
