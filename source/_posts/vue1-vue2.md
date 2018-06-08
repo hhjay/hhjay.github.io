@@ -27,7 +27,7 @@ tags: js
     - sort排序
 - slot
 - keep-alive变成一个包裹组件，而不只是一个属性
-- {{{ html }}} 使用 v-html替换
+- { { { html } } } 使用 v-html替换
 
 ## vuex
 - $dispatch 和 $broadcast 替换
