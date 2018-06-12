@@ -42,11 +42,29 @@ tags: js
 ## bind
 - bind是es5拓展的方法
 - bind方法创建一个新的函数（绑定函数），当绑定函数被调用时，第一个参数为thisArg、第二个及以后的参数加上绑定函数运行时本身的参数按照顺序作为原函数的参数来调用原函数
+``` JavaScript
+    function fn1(a, b) {
+        console.log(this, a, b);
+    }
+    var s1 = { x: 1 }, s2 = { x: 2 };
+    var fn2 = fn1.bind(111); // Number(111)
+    var fn2 = fn1.bind(s1); // { x: 1 }
+    var fn2 = fn1.bind(s1).bind(s2); // { x: 1 } // 多次 bind() 是无效的
+    var fn2 = fn1.bind(s2, s1); // { x: 2 } // 第一个参数为this、第二个为其他参数
+    var fn2 = fn1.bind(s2, [s1, s2]); // { x: 2 }, [{ x: 1}, {x: 2}], undefined // 第一个参数为this、第二个为其他参数
+    fn2();
+```
 
 ## call 与 apply 区别
 - 参数不一样，call把参数按顺序传递、apply把参数放进数组里
 
 ## call/apply 与 bind 区别
+- bind是新创建一个绑定函数，所以需调用绑定函数才会执行；call/apply则立即执行
+
+## 相同
+- call、apply、bind都用来改变函数的this指向
+- call、apply、bind第一个参数都是this要指向的对象，即指向的上下文
+- call、apply、bind都可以用后续参数传参
 
 ## 参考
 - [mdn](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
