@@ -7,7 +7,7 @@ tags: js
 ## vue生命周期
 
 ## 双向数据绑定原理
-- definePrototype和proxy的区别
+- [definePrototype和proxy的区别](https://juejin.im/post/5acd0c8a6fb9a028da7cdfaf)
 
 ## 虚拟dom
 
