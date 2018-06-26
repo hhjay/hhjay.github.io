@@ -67,6 +67,13 @@ tags: js
         - data是一个函数后，每个组件实例有自己的作用域，实例之间相互独立互不影响
 
 ## 虚拟dom
+- 先把模板转化成AST树，之后render函数返回VNode(Vue-virtual Node)
+- 首先，通过compile编译器把template编译成AST(Abstract Syntax Tree抽象语法树)
+- compile是createElement的返回值，createElement是用于创建编译器
+- 然后AST通过generate得到render函数，render的返回值是vNode
+- 虚拟dom是js对象，操作更高效
+    - vue的diff算法是在同级vNode间比较，递归的进行同级vNode的diff，最终实现整个dom树的更新
+- [参考](https://cn.vuejs.org/v2/guide/render-function.html#%E8%8A%82%E7%82%B9%E3%80%81%E6%A0%91%E4%BB%A5%E5%8F%8A%E8%99%9A%E6%8B%9F-DOM)
 
 ## vue的template编译的原理
 

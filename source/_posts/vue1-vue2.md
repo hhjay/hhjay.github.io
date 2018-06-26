@@ -28,6 +28,7 @@ tags: js
 - slot
 - keep-alive变成一个包裹组件，而不只是一个属性
 - { { { html } } } 使用 v-html替换
+- 在vue2中增加了虚拟dom
 
 ## vuex
 - $dispatch 和 $broadcast 替换
