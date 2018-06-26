@@ -41,6 +41,30 @@ tags: js
 
 ## 双向数据绑定原理
 - [definePrototype和proxy的区别](https://juejin.im/post/5acd0c8a6fb9a028da7cdfaf)
+- 数据劫持结合发布者 - 订阅者的方式，通过defineProperty来劫持各个属性的setter、getter，在数据变动时发布消息给订阅者，触发相关的监听回调
+- defineProperty
+    - 1、对observe的数据对象进行遍历，包括子属性对象的属性，都加上setter和getter。这样给该对象赋值的时候就会触发setter，就可以监听到数据变化了
+    - 2、compile时解析模板指令，将模板中的变量替换成数据，初始化渲染页面视图，并将每个指令对应的节点绑定更新函数，添加监听数据的订阅者，一旦数据有变动，收到通知，则更新视图
+    - 3、Watcher订阅者是observe和compile之间通信的桥梁
+        - 在自身实例化时往订阅器dep里面添加自己
+        - 自身有一个update方法
+        - 待属性变动，触发dep.notice通知时，调用自身的update函数，并触发compile绑定的回调
+    - 4、mvvm作为数据绑定的入口，整合observe、compile和watcher三者，通过observe来监听自己的module数据变化，通过compile来解析编译模板指令
+        - 最终利用watcher搭起observe和compile的桥梁，达到数据变化->视图更新、视图交互变化->数据module变更的双向绑定效果
+- Vue不允许在已经创建的实例上动态添加新的跟级响应式属性
+    - 但它可以使用Vue.set方法将响应式属性添加到嵌套的对象上
+    - 还可以用vm.$set实例方法
+- 向已有对象上添加一些属性，例如使用Object.assign或_.extend方法来添加属性
+    - 添加到对象上的新属性不会触发更新
+    - 在这种情况下，可以创建一个新的对象让他包含原对象的属性和新的属性
+    ``` JavaScript
+        this.obj = Object.assign({}, this.obj, { a: 1, b: 2 });
+    ```
+- [为什么data是返回函数而非对象](https://cn.vuejs.org/v2/guide/components.html#data-%E5%BF%85%E9%A1%BB%E6%98%AF%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0)
+    - 函数作用域
+    - 组件是通过Vue.component全局注册的，可以用在其注册之后的任何新创建的Vue根实例
+        - 若data是对象，则会有数据之间的命名冲突等问题
+        - data是一个函数后，每个组件实例有自己的作用域，实例之间相互独立互不影响
 
 ## 虚拟dom
 
