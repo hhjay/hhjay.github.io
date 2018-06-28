@@ -5,19 +5,6 @@ tags: js
 ---
 
 ## vue生命周期
-``` JavaScript
-    // 例子 ~/backup_code/learn/example/js-pro/vue-code.html
-    new Vue()
-    beforeCreate()
-    created()
-    beforeMount()
-    ...compile...
-    mounted()
-    beforeUpdate()
-    updated()
-    beforeDestroy()
-    destroyed()
-```
 - new Vue()
     - 创建Vue实例
 - 创建前后
@@ -38,6 +25,20 @@ tags: js
     - 实例销毁之前调用beforeUpdate，在这一步，实例仍然完全可用
     - Vue实例销毁之后调用
         - 实例的所有东西都会被解绑，所有的事件监听器都会被移除，所有的子实例都会被销毁
+- code
+    ``` JavaScript
+        // 例子 ~/backup_code/learn/example/js-pro/vue-code.html
+        new Vue()
+        beforeCreate()
+        created()
+        beforeMount()
+        ...compile...
+        mounted()
+        beforeUpdate()
+        updated()
+        beforeDestroy()
+        destroyed()
+    ```
 
 ## 双向数据绑定原理
 - [definePrototype和proxy的区别](https://juejin.im/post/5acd0c8a6fb9a028da7cdfaf)
@@ -67,17 +68,39 @@ tags: js
         - data是一个函数后，每个组件实例有自己的作用域，实例之间相互独立互不影响
 
 ## 虚拟dom
+- 虚拟dom是js对象，操作更高效
+    - vue的diff算法(基于snabbdom改造)是在同级vNode间比较，递归的进行同级vNode的diff，最终实现整个dom树的更新
+    - 判断同一节点：key相同、tag相同、data(当前节点的对象，包含具体的数据信息)一致、标签是input时type相同
+- [参考1](https://cn.vuejs.org/v2/guide/render-function.html#%E8%8A%82%E7%82%B9%E3%80%81%E6%A0%91%E4%BB%A5%E5%8F%8A%E8%99%9A%E6%8B%9F-DOM)
+- [参考2](https://github.com/answershuto/learnVue/blob/master/docs/VirtualDOM%E4%B8%8Ediff(Vue%E5%AE%9E%E7%8E%B0).MarkDown)
+
+## vue的template编译的原理
 - 先把模板转化成AST树，之后render函数返回VNode(Vue-virtual Node)
 - 首先，通过compile编译器把template编译成AST(Abstract Syntax Tree抽象语法树)
 - compile是createElement的返回值，createElement是用于创建编译器
 - 然后AST通过generate得到render函数，render的返回值是vNode
-- 虚拟dom是js对象，操作更高效
-    - vue的diff算法是在同级vNode间比较，递归的进行同级vNode的diff，最终实现整个dom树的更新
-- [参考](https://cn.vuejs.org/v2/guide/render-function.html#%E8%8A%82%E7%82%B9%E3%80%81%E6%A0%91%E4%BB%A5%E5%8F%8A%E8%99%9A%E6%8B%9F-DOM)
-
-## vue的template编译的原理
 
 ## event & v-model 实现原理
+- v-model原理
+- 传入原先的props，使用临时变量标记this，然后监听input的输入事件，并将输入值返回传给原先的值并修改
+- 通过绑定原先值的value，并监听
+- code
+    ``` JavaScript
+        props: ["v-model"],
+        render: function(h) {
+            let self = this;
+            return h('input', {
+                domProps: {// 初始化值
+                    value: self['v-model']
+                },
+                on: {
+                    input: function(evt) {// 此处为event
+                        self.emit('input', event.target.value); // 自定义回调函数
+                    }
+                }
+            })
+        }
+    ```
 
 ## slot & keep-alive 实现原理
 
