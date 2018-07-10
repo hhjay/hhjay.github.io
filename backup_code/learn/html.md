@@ -36,12 +36,10 @@
 ## 在页面添加评注
 - [ ] [link](http://www.html-js.com/article/The-front-end-of-the-official-about-the-new-function-column-mass-just-online-commentary)
 
-<<<<<<< HEAD
 ## virtual Dom
 - [ ] [link](http://www.cnblogs.com/xuntu/p/6800547.html)
 - 看成一棵模拟了Dom树的javascript树，主要使用vnode实现一个无状态的组件，当组件发生更新时，触发virtual Dom的变化，然后通过与真实Dom的比对，再更新Dom，简单的认为虚拟dom是真实dom的缓存；
 - [ ] diff算法同级比较。
-=======
 ## 图片预加载、减少图片加载
 - [x] css背景：将所有图片放在背景图、之后调用路径不变就不会再次请求图片
 	- [1] 
@@ -128,4 +126,3 @@
 - [x] 参考链接 
 	- [1] [link1](http://w3help.org/zh-cn/casestudies/002)
 	- [2] [link2](https://msdn.microsoft.com/en-us/library/bb250395.aspx)
->>>>>>> 18bf9c3c7aceb2699e974f99020323e11a78110c
