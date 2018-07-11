@@ -149,7 +149,41 @@ tags: js
         ```
 
 ## 插入排序
+- 一种直观的排序算法
+- 思路
+    - 从第一个元素开始，并认定为已经被排序
+    - 取出下一个元素，在已经排序的数组中从后向前扫描
+    - 若该元素大于新元素，将元素移至下一位置
+    - 重复上一步骤
+    - 将新元素插入到该位置后
+    - 重复判断
+- 代码
+    - 函数
+        ``` JavaScript
+            function insertSort(arr) {
+                let len = arr.length;
+                for(let i = 1; i < len; i++) {
+                    let max = arr[i];
+                    for(let j = i - 1; j >= 0 && max > arr[j]; j--) {
+                        arr[j + 1] = arr[j];
+                        arr[j] = max;
+                    }
+                }
+                console.log(arr);
+            }
+        ```
+    - 原型链
+        ``` JavaScript
+            Array.prototype.insertSort = function() {
+                let len = this.length;
+                for(let i = 0; i < len; i++) {
+                    let max = this[i];
+                    for(let j = i - 1; j >= 0 && max > this[j]; j--) {
+                        this[j + 1] = this[j];
+                        this[j] = max;
+                    }
+                }
+            }
+        ```
 
 ## 桶排序
-
-## 
