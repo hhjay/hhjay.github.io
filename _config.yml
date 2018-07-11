@@ -81,7 +81,7 @@ deploy:
   type: git
   # repo: https://github.com/hhjay/hhjay.github.io.git
   repo: git@github.com:hhjay/hhjay.github.io.git
-  root: dist
   branch: deploy # 部署分支
+  message: 部署代码
   # name: hhjay
   # email: sunhhjay@gmail.com
