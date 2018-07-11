@@ -50,15 +50,16 @@ tags: js
 
         let mid = arr[parseInt((start + end) / 2)]; // 正常使用第一个作为基准
         let left = start + 1, right = end;
-        while(left < right) {
-            while( mid > arr[left] ) {
+        while(left < right) {// 左右两端扫描
+            while( mid > arr[left] ) {// 找到比基准大的值（左边切换位置）
                 left++;
             }
 
-            while( mid < arr[right] ) {
+            while( mid < arr[right] ) {// 寻找比基准小的值（右边切换位置）
                 right--;
             }
 
+            // 找到左边比基准大的数、右边比基准小的数。进行交换
             if( left <= right ) {
                 let temp = arr[left];
                 arr[left] = arr[right];
@@ -68,10 +69,11 @@ tags: js
                 right--;
             }
         }
-
+        // 左边再排序
         if( start < left ) {
             quickSort(arr, start, right);
         }
+        // 右边再排序
         if( left < end ) {
             quickSort(arr, left, end);
         }
