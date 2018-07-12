@@ -34,19 +34,20 @@ tags: job
         - a << b 将a的二进制形式向左移b bit位
         - a >> b 有符号右移，将a的二进制形式向右移，丢弃被移除的位
         - a >>> b 无符号右移，将a的二进制形式右移，丢弃被移除的位，并使用0在右侧填充
-    ``` JavaScript
-        function size_1(num) {
-            let count = 0;
-            while (num != 0) {
-                let t = num << 1;
-                if( t == 1 ) {
-                    count++;
+        ``` JavaScript
+            // 无须二进制
+            function size1(num = 10) {
+                let count = 0;
+                while( num != 0 ) {// 迭代移位
+                    if( num % 2 != 0 ){
+                        count++;
+                    }
+                    num = num >> 1; // 移位
                 }
+                console.log(count);
             }
-            console.log(count)
-        }
-        size_1(10010)
-    ```
+            size1(10010)
+        ```
     - 字符化之后迭代查找
 
 ## 面试
