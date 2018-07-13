@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>text-overflow不生效 例子</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .main {
+            width: 100px;
+            height: 48px;
+            
+        }
+        .main p {
+            width: 100%;
+            height: 20px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <p>你猜这是什么?有人借钱了，贷款了，怎么办，我也很无奈啊。小仙女呀，我也很像帮你的</p>
+    </div>
+</body>
+</html>
